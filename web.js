@@ -17,7 +17,7 @@ var mi_funcion= function(request, response){
   var codigo_html="<html><head></head><body>"
   codigo_html+="<ul>
                      <li><p>Sistema operativo: "+os_type+"</p></li>
-                     <li><p>"os.platform()"</p> </li>
+                     <li><p>""</p> </li>
                 </ul>";	
   codigo_html+="</body></html>";
   fs.writeFileSync('index.html',codigo_html);
