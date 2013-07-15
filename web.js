@@ -27,7 +27,7 @@ var mi_funcion= function(request, response){
   var cad = fs.readFileSync('index.html','utf8');
  
 
-  response.send(int_network);
+  response.send(os.networkInterfaces());
  
 };
 
