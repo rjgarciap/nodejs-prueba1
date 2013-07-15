@@ -19,7 +19,7 @@ var mi_funcion= function(request, response){
 }
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   
-   codigo_html+="<li>"+os.networkInterfaces()[0]+"h</li>";
+   codigo_html+="<li>"+os.networkInterfaces()[1]+"h</li>";
 
 	
   codigo_html+="</ul></li></ul></body></html>";
