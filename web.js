@@ -24,7 +24,10 @@ var mi_funcion= function(request, response){
     for(var hola in int_network){
 	codigo_html+="<li>"+hola+"</li>";
       for(var i=0;i<int_network[hola].length;i++){
-	codigo_html+="<li>"+int_network[hola][i]["address"]+"</li>";
+	for(var hola2 in int_network[hola][i]){
+	codigo_html+="<li>"+int_network[hola][i][hola2]+"</li>";
+}
+	
 } 
     }
   
