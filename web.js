@@ -5,12 +5,12 @@ var app = express(); //.createServer(express.logger());
 var os = require('os');
 
 console.log("iniciando la aplicacion");
-console.log(os.networkInterfaces()['lo0']);
+
 var mi_funcion= function(request, response){
   var fs = require('fs');
   var cpu_info =os.cpus();
   var int_network=os.networkInterfaces();
-  	
+  var parsed=JSON.parse(int_network);	
   console.log("hemos recibido algo");
   var codigo_html="<html><head></head><body>";
     codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os.type()+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Arquitectura CPU OS: </b>"+os.arch()+"</p></li><li><p><b>Release del SO: </b>"+os.release()+"</p></li><li><p><b>Memoria total del sistema(Bytes): </b>"+os.totalmem()+"</p></li><li><p><b>Memoria libre del sistema(Bytes): </b>"+os.freemem()+"</p></li><li><p><b>Directorio archivos temporales: </b>"+os.tmpdir()+"</p></li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Endianness de la CPU: </b>"+os.endianness()+"</p></li><li><p><b>CPUs: </b></p>";
