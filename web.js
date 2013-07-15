@@ -11,7 +11,7 @@ var mi_funcion= function(request, response){
   var cpu_info =os.cpus();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send("hola mundo"+cpu_info);
+  response.send(cpu_info);
 
 
 };
