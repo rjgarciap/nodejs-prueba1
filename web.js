@@ -15,7 +15,7 @@ var mi_funcion= function(request, response){
   console.log("hemos recibido algo");
 
   var codigo_html="<html><head></head><body>"
-  codigo_html+="<ul><li><p>Sistema operativo: "+os_type+"</p></li><li><p>"+os.platform()+"</p> </li></ul>";	
+    codigo_html+="<ul><li><p>Sistema operativo: "+os_type+"</p></li><li><p>Plataforma: "+os.platform()+"</p> </li><li><p>Host name: "+os.hostname()+"</p></li></ul>";	
   codigo_html+="</body></html>";
   fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
