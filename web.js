@@ -21,7 +21,7 @@ var mi_funcion= function(request, response){
 }
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   for(var j=0;j<int_network.length;j++){
-   codigo_html+="<li>"+int_network[j]+"<li>";
+   codigo_html+="<li>"+int_network[j]+"h</li>";
 
 
 }
