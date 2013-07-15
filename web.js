@@ -24,7 +24,7 @@ var mi_funcion= function(request, response){
     for(var hola in int_network){
 	codigo_html+="<li>"+hola+"</li>";
       for(var i=0;hola.length;i++){
-	codigo_html+="<li>"+hola[i]["address"]+"</li>";
+	codigo_html+="<li>"+hola[i]+"</li>";
 } 
     }
   
