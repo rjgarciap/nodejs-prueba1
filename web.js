@@ -13,15 +13,20 @@ var mi_funcion= function(request, response){
 	
   console.log("hemos recibido algo");
 
-  var codigo_html="<html><head></head><body>"
+  var codigo_html="<html><head></head><body>";
     codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os.type()+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Arquitectura CPU OS: </b>"+os.arch()+"</p></li><li><p><b>Release del SO: </b>"+os.release()+"</p></li><li><p><b>Memoria total del sistema(Bytes): </b>"+os.totalmem()+"</p></li><li><p><b>Memoria libre del sistema(Bytes): </b>"+os.freemem()+"</p></li><li><p><b>Directorio archivos temporales: </b>"+os.tmpdir()+"</p></li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Endianness de la CPU: </b>"+os.endianness()+"</p></li><li><p><b>CPUs: </b></p>";
 
    for(var i=0;i<cpu_info.length;i++){
-   codigo_html+="<li>Modelo: "+cpu_info[i]["model"]+"</li><li>Speed: "+cpu_info[i]["speed"]+"</li><li><p>Tiempos: </p><ul><li>user: "+cpu_info[i]["times"]["user"]+"</li><li>nice: "+cpu_info[i]["times"]["nice"]+"</li><li>sys: "+cpu_info[i]["times"]["sys"]+"</li><li>idle: "+cpu_info[i]["times"]["idle"]+"</li><li>irq: "+cpu_info[i]["times"]["irq"]+"</li></ul></li>"
-   codigo_html+="<br>";
+   codigo_html+="<li>Modelo: "+cpu_info[i]["model"]+"</li><li>Speed: "+cpu_info[i]["speed"]+"</li><li>Tiempos: <br><ul><li>user: "+cpu_info[i]["times"]["user"]+"</li><li>nice: "+cpu_info[i]["times"]["nice"]+"</li><li>sys: "+cpu_info[i]["times"]["sys"]+"</li><li>idle: "+cpu_info[i]["times"]["idle"]+"</li><li>irq: "+cpu_info[i]["times"]["irq"]+"</li></ul></li><br>";
 }
-  codigo_html+="</li></ul>";	
-  codigo_html+="</body></html>";
+  codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
+  for(var j=0;j<int_network.length;j++){
+   codigo_html+="<li>"+int_network[j]+"<li>";
+
+
+}
+	
+  codigo_html+="</ul></li></ul></body></html>";
   fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
  
