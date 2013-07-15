@@ -12,9 +12,9 @@ var mi_funcion= function(request, response){
   var int_network=os.networkInterfaces();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send(cpu_info);
-  response.send(int_network);
-
+  var resultados=[cpu_info,int_network];
+  response.send(resultados);
+ 
 };
 
 app.get('/', mi_funcion);
