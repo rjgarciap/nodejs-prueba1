@@ -15,7 +15,7 @@ var mi_funcion= function(request, response){
   console.log("hemos recibido algo");
 
   var codigo_html="<html><head></head><body>"
-    codigo_html+="<ul><li><p>Sistema operativo: "+os_type+"</p></li><li><p>Plataforma: "+os.platform()+"</p> </li><li><p>Host name: "+os.hostname()+"</p></li><li><p>Arquitectura CPU OS: "+os.arch()+"</p></li><li><p>Release del SO: "+os.release()+"</p></li><li><p>Memoria total del sistema: "+os.totalmem()+"</p></li><li><p>Directorio archivos temporales: "+os.tmpdir()+"</p></li><li><p>Host name: "+os.hostname()+"</p></li><li><p>Endianness de la CPU: "+os.endianness()+"</p></li></ul>";	
+    codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os_type+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p<b>Host name: </b>"+os.hostname()+"</p></li><li><p>Arquitectura CPU OS: "+os.arch()+"</p></li><li><p>Release del SO: "+os.release()+"</p></li><li><p>Memoria total del sistema(Byte): "+os.totalmem()+"</p></li><li><p>Memoria libre del sistema(Bytes): "+os.freemem()+"</p></li><li><p>Directorio archivos temporales: "+os.tmpdir()+"</p></li><li><p>Host name: "+os.hostname()+"</p></li><li><p>Endianness de la CPU: "+os.endianness()+"</p></li></ul>";	
   codigo_html+="</body></html>";
   fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
