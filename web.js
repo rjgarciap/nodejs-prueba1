@@ -17,7 +17,7 @@ var mi_funcion= function(request, response){
     codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os.type()+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Arquitectura CPU OS: </b>"+os.arch()+"</p></li><li><p><b>Release del SO: </b>"+os.release()+"</p></li><li><p><b>Memoria total del sistema(Bytes): </b>"+os.totalmem()+"</p></li><li><p><b>Memoria libre del sistema(Bytes): </b>"+os.freemem()+"</p></li><li><p><b>Directorio archivos temporales: </b>"+os.tmpdir()+"</p></li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Endianness de la CPU: </b>"+os.endianness()+"</p></li><li><p><b>CPUs: </b></p>";
 //recorro cpus_info
    for(var i=0;i<cpu_info.length;i++){
-   codigo_html+="<li><b>Modelo: </b>"+cpu_info[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info[i]["times"]["user"]+"</li><li><b>nice: "+cpu_info[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info[i]["times"]["irq"]+"</li></ul></li><br>";
+   codigo_html+="<li><b>Modelo: </b>"+cpu_info[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info[i]["times"]["irq"]+"</li></ul></li><br>";
 }
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   //recorro interface network
