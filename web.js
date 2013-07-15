@@ -16,7 +16,7 @@ var mi_funcion= function(request, response){
   var codigo_html="<html><head></head><body>"
   codigo_html+="<p>Tipo de sistema operativo:"+os_type+"</p>";	
   codigo_html+="</body></html>";
-  fs.writeFileSync('index.html',"hola");
+  fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
   var primero=cpu_info[0]["model"];
   var resultados=["Sistema operativo:",os_type,"Nombre del host:",host_name,"Informacion CPU:",cpu_info,"Interfaces de red:",int_network];
