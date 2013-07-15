@@ -5,10 +5,7 @@ var app = express(); //.createServer(express.logger());
 var os = require('os');
 
 console.log("iniciando la aplicacion");
-var int_network=os.networkInterfaces();
-for(var hola in int_network){
-  console.log(hola);
-};
+
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
@@ -24,7 +21,13 @@ var mi_funcion= function(request, response){
 }
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   
-  codigo_html+="<li>"+int_network.eth0[0]["address"]+"</li>";
+    for(var hola in int_network){
+	codigo_html+="<li>"+hola+"</li>";
+      for(var i=0;hola.length;i++){
+	codigo_html+="<li>"+hola[i]["address"]+"</li>";
+} 
+    }
+  
 
 	
   codigo_html+="</ul></li></ul></body></html>";
