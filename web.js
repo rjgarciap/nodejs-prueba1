@@ -25,7 +25,6 @@ var mi_funcion= function(request, response){
   var cad = fs.readFileSync('index.html','utf8');
  
 
-  var resultados=["Sistema operativo:",os_type,"Nombre del host:",host_name,"Informacion CPU:",cpu_info,"Interfaces de red:",int_network];
   response.send(cad);
  
 };
