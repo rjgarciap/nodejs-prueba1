@@ -18,11 +18,9 @@ var mi_funcion= function(request, response){
    codigo_html+="<li>Modelo: "+cpu_info[i]["model"]+"</li><li>Speed: "+cpu_info[i]["speed"]+"</li><li>Tiempos: <br><ul><li>user: "+cpu_info[i]["times"]["user"]+"</li><li>nice: "+cpu_info[i]["times"]["nice"]+"</li><li>sys: "+cpu_info[i]["times"]["sys"]+"</li><li>idle: "+cpu_info[i]["times"]["idle"]+"</li><li>irq: "+cpu_info[i]["times"]["irq"]+"</li></ul></li><br>";
 }
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
-  for(var i=0;i<os.networkInterfaces().length;i++){
-   codigo_html+="<li>"+os.networkInterfaces()+"h</li>";
+  
+   codigo_html+="<li>"+os.networkInterfaces()[0]+"h</li>";
 
-
-}
 	
   codigo_html+="</ul></li></ul></body></html>";
   fs.writeFileSync('index.html',codigo_html);
