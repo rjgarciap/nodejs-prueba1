@@ -14,7 +14,8 @@ var mi_funcion= function(request, response){
   console.log("hemos recibido algo");
 
   var codigo_html="<html><head></head><body>"
-    codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os_type+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Arquitectura CPU OS: </b>"+os.arch()+"</p></li><li><p><b>Release del SO: </b>"+os.release()+"</p></li><li><p><b>Memoria total del sistema(Bytes): </b>"+os.totalmem()+"</p></li><li><p><b>Memoria libre del sistema(Bytes): </b>"+os.freemem()+"</p></li><li><p><b>Directorio archivos temporales: </b>"+os.tmpdir()+"</p></li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Endianness de la CPU: </b>"+os.endianness()+"</p></li><li><p><b>CPUs: </b></p>";
+    codigo_html+="<ul><li><p><b>Sistema operativo: </b>"+os.type()+"</p></li><li><p><b>Plataforma: </b>"+os.platform()+"</p> </li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Arquitectura CPU OS: </b>"+os.arch()+"</p></li><li><p><b>Release del SO: </b>"+os.release()+"</p></li><li><p><b>Memoria total del sistema(Bytes): </b>"+os.totalmem()+"</p></li><li><p><b>Memoria libre del sistema(Bytes): </b>"+os.freemem()+"</p></li><li><p><b>Directorio archivos temporales: </b>"+os.tmpdir()+"</p></li><li><p><b>Host name: </b>"+os.hostname()+"</p></li><li><p><b>Endianness de la CPU: </b>"+os.endianness()+"</p></li><li><p><b>CPUs: </b></p>";
+
    for(var i=0;i<cpu_info.length;i++){
    codigo_html+="<li>"+cpu_info[i]["model"]+": "+"<li>"+cpu_info[i]["speed"]+"</li></li>"
 }
