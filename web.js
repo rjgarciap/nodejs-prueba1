@@ -10,10 +10,11 @@ var mi_funcion= function(request, response){
   var fs = require('fs');
   var cpu_info =os.cpus();
   var int_network=os.networkInterfaces();
-  var os_type=os.type();		
+  var os_type=os.type();
+  var host_name=os.hostname();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  var resultados=["Sistema operativo",os_type,"Informacion CPU",cpu_info,"Interfaces de red",int_network];
+  var resultados=["Sistema operativo:",os_type,"Nombre del host:",host_name,"Informacion CPU:",cpu_info,"Interfaces de red:",int_network];
   response.send(resultados);
  
 };
