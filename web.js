@@ -4,7 +4,7 @@ var app = express(); //.createServer(express.logger());
 
 console.log("iniciando la aplicacion");
 
-var funcion= function(request, response){
+var mi_funcion= function(request, response){
   var fs = require('fs');
 
   console.log("hemos recibido algo");
@@ -14,7 +14,7 @@ var funcion= function(request, response){
 
 };
 
-app.get('/', funcion(request, response));
+app.get('/', mi_funcion);
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
