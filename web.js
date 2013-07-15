@@ -12,7 +12,7 @@ var mi_funcion= function(request, response){
   var int_network=os.networkInterfaces();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  var resultados=[cpu_info,int_network];
+  var resultados=["Informacion CPU"+'/n',cpu_info,int_network];
   response.send(resultados);
  
 };
