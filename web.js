@@ -2,14 +2,16 @@
 var express = require('express');
 var app = express(); //.createServer(express.logger());
 
-console.log("iniciando la aplicacion");
+var os = require('os');
 
+console.log("iniciando la aplicacion");
+console.log(os.cpus());
 var mi_funcion= function(request, response){
   var fs = require('fs');
-
+  var cpu_info =os.cpus();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send("hola mundo");
+  response.send("hola mundo"+cpu_info);
 
 
 };
