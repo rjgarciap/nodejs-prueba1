@@ -18,6 +18,7 @@ var mi_funcion= function(request, response){
 
    for(var i=0;i<cpu_info.length;i++){
    codigo_html+="<li>"+cpu_info[i]["model"]+": <li>"+cpu_info[i]["speed"]+"</li></li>"
+   codigo_html+="<br>";
 }
   codigo_html+="</li></ul>";	
   codigo_html+="</body></html>";
