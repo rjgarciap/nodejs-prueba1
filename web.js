@@ -26,7 +26,7 @@ var mi_funcion= function(request, response){
   codigo_html+="</ul></li></ul></body></html>";
   fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
-  response.send(int_network.eth1);
+  response.send(int_network);
 
   
  
