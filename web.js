@@ -22,7 +22,7 @@ var mi_funcion= function(request, response){
   codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   
     for(var hola in int_network){
-	codigo_html+="<li>"+hola+"</li>";
+	codigo_html+="<li><strong>"+hola+"</strong></li>";
       for(var i=0;i<int_network[hola].length;i++){
 	for(var hola2 in int_network[hola][i]){
 	codigo_html+="<li><b>"+hola2+": </b>"+int_network[hola][i][hola2]+"</li>";
