@@ -14,8 +14,9 @@ var mi_funcion= function(request, response){
   var host_name=os.hostname();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
+  var primero=cpu_info[0]["model"];
   var resultados=["Sistema operativo:",os_type,"Nombre del host:",host_name,"Informacion CPU:",cpu_info,"Interfaces de red:",int_network];
-  response.send(resultados);
+  response.send(primero);
  
 };
 
