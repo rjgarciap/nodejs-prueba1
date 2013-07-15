@@ -8,10 +8,11 @@ console.log("iniciando la aplicacion");
 console.log(os.cpus());
 var mi_funcion= function(request, response){
   var fs = require('fs');
-  var cpu_info =os.cpus();		
+  var cpu_info =os.cpus();
+  var int_network=os.networkInterfaces();		
   console.log("hemos recibido algo");
 //  var cad = fs.readFileSync('index.html','utf8');
-  response.send(cpu_info);
+  response.send(cpu_info+""+int_network);
 
 
 };
