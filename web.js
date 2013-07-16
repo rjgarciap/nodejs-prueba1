@@ -8,15 +8,8 @@ var os = require('os');
 var cpu_info2;
 var int_network2;
 
-var comp=fs.readFileSync('informacion_s.html','utf8');
-if(comp==null){
 
-  var codigo_html="<html><head></head><body>"; 
-
-}else{
-
-  var codigo_html="";
-};
+var codigo_html="<html><head></head><body>"; 
 
 console.log("iniciando la aplicacion");
 
