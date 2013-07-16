@@ -11,7 +11,7 @@ var int_network2;
 
 //var codigo_html="<html><head></head><body>"; 
 var antjson="{final:final}";
-
+var json;
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
@@ -85,7 +85,7 @@ var mi_funcion= function(request, response){
 };
 
 app.get('/', mi_funcion);
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5090;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
