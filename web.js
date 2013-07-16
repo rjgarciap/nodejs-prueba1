@@ -42,7 +42,7 @@ json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'time
 //}//codigo_html+="</ul></li>" 
   //  }
 //codigo_html+="</ul></li></ul>";
-fs.writeFileSync('informacion_s.json',json);
+fs.writeFileSync('informacion_s.json',antjson);
 }
 
 var mi_funcion= function(request, response){
@@ -75,7 +75,7 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('index.html',codigo_html);
   */
   //codigo_html+="</body></html>";
-  fs.appendFile('informacion_s.json',"}");
+  
   var cad = fs.readFileSync('informacion_s.json','utf8');
 
   response.send(cad);
