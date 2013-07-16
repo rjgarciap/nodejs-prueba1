@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 var express = require('express');
-var self=require('self');
 var app = express(); //.createServer(express.logger());
 
 var os = require('os');
 
 console.log("iniciando la aplicacion");
 
-var int=self.setInterval(function(){clock()},1000);
+var int=setInterval(function(){clock()},1000);
 function clock(){
+var fs = require('fs');
 fs.writeFileSync('informacion.html',os.cpus());
 }
 
