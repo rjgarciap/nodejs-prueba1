@@ -77,6 +77,7 @@ var mi_funcion= function(request, response){
   //codigo_html+="</body></html>";
   fs.appendFile('informacion_s.json',"}");
   var cad = fs.readFileSync('informacion_s.json','utf8');
+  response.set('Content-Type', 'text/json');
   response.send(cad);
 
   
