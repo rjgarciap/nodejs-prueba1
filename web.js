@@ -10,7 +10,7 @@ var int_network2;
 
 
 //var codigo_html="<html><head></head><body>"; 
-var antjson="{inicio:inicio,final:final}";
+var antjson="{inicio:iniciofinal:final}";
 var json="";
 console.log("iniciando la aplicacion");
 
