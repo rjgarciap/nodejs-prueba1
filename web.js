@@ -12,7 +12,7 @@ function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
 var codigo_html="<html><head></head><body><ul>";
-   codigo_html+="<li><p>Free memory: </p>"+os.freemem()+"</li>";
+   codigo_html+="<li><p>Free memory: "+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
    codigo_html+="<li><b>Modelo: </b>"+cpu_info2[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info2[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info2[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info2[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info2[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info2[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info2[i]["times"]["irq"]+"</li></ul></li><br>";
 }
