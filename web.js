@@ -9,6 +9,7 @@ console.log("iniciando la aplicacion");
 var int=setInterval(function(){clock()},1000);
 function clock(){
  var cpu_info =os.cpus();
+var int_network=os.networkInterfaces();
 var codigo_html="<html><head></head><body><ul>";
    for(var i=0;i<cpu_info.length;i++){
    codigo_html+="<li><b>Modelo: </b>"+cpu_info[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info[i]["times"]["irq"]+"</li></ul></li><br>";
