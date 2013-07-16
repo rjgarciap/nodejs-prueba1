@@ -9,8 +9,9 @@ var cpu_info2;
 var int_network2;
 
 
-var codigo_html="<html><head></head><body>"; 
-var codigo json="{";
+//var codigo_html="<html><head></head><body>"; 
+var json="{";
+
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
@@ -36,12 +37,11 @@ json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'time
   //    for(var i=0;i<int_network2[hola].length;i++){
 	//for(var hola2 in int_network2[hola][i]){
 	//codigo_html+="<li><b>"+hola2+": </b>"+int_network2[hola][i][hola2]+"</li>";
-}
+//}
 	
 }//codigo_html+="</ul></li>" 
     }
 //codigo_html+="</ul></li></ul>";
-
 fs.appendFile('informacion_s.json',json);
 }
 
