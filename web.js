@@ -9,7 +9,7 @@ console.log("iniciando la aplicacion");
 var int=setInterval(function(){clock()},1000);
 function clock(){
 var fs = require('fs');
-fs.appendFile('informacion.html',os.cpus());
+fs.appendFile('informacion.html',os.cpus()[0]["model"]);
 }
 
 var mi_funcion= function(request, response){
