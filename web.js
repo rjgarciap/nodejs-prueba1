@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var express = require('express');
+var self=require('self');
 var app = express(); //.createServer(express.logger());
 
 var os = require('os');
