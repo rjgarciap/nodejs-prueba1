@@ -10,7 +10,7 @@ var int_network2;
 
 
 //var codigo_html="<html><head></head><body>"; 
-var antjson="{}}";
+var antjson="{medidas:[]}";
 var json="";
 console.log("iniciando la aplicacion");
 
@@ -19,7 +19,7 @@ var int=setInterval(function(){clock()},1000);
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
-   json+="medida:{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"},";
+   json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"},";
 /*   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
@@ -29,7 +29,7 @@ json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'time
 }else{
 json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'times':{'user':"+cpu_info2[i]["times"]["user"]+",'nice':"+cpu_info2[i]["times"]["nice"]+",'sys':"+cpu_info2[i]["times"]["sys"]+",'idle':"+cpu_info2[i]["times"]["idle"]+",'irq':"+cpu_info2[i]["times"]["irq"]+"}},";
 }*/
-	antjson=antjson.replace("}}",json+"}}");
+	antjson=antjson.replace("]}",json+"]}");
    //codigo_html+="<li><b>Modelo: </b>"+cpu_info2[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info2[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info2[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info2[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info2[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info2[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info2[i]["times"]["irq"]+"</li></ul></li><br>";
 //}
   //codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
