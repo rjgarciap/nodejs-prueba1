@@ -15,12 +15,12 @@ var json="";
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
-var o="h";
+var o="G";
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
  
- if(o==="h"){
+ if(o==="G"){
    json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
    o="U";
  }else{
