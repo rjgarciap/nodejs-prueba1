@@ -7,13 +7,21 @@ var os = require('os');
 
 var cpu_info2;
 var int_network2;
-if(fs.readFileSync('informacion_s.html','utf8')==null){
-var codigo_html="<html><head></head><body>";
+
+var comp=fs.readFileSync('informacion_s.html','utf8');
+if(comp==null){
+
+  var codigo_html="<html><head></head><body>"; 
+
 }else{
-var codigo_html="";
+
+  var codigo_html="";
 }
+
 console.log("iniciando la aplicacion");
+
 var int=setInterval(function(){clock()},1000);
+
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
