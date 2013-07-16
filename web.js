@@ -20,7 +20,7 @@ function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
  var o=0;
- if(o==0){
+ if(o===0){
    json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
    o++;
  }else{
