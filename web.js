@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 var express = require('express');
 var app = express(); //.createServer(express.logger());
+var fs = require('fs');
 
 var os = require('os');
+
 var cpu_info2;
 var int_network2;
+if(fs.readFileSync('informacion_s.html','utf8')==null){
 var codigo_html="<html><head></head><body>";
+}else{
+var codigo_html="";
+}
 console.log("iniciando la aplicacion");
 var int=setInterval(function(){clock()},1000);
 function clock(){
@@ -28,8 +34,8 @@ function clock(){
 }codigo_html+="</ul></li>" 
     }
 codigo_html+="</ul></li></ul>";
-var fs = require('fs');
-fs.appendFile('informacion.html',codigo_html);
+
+fs.appendFile('informacion_s.html',codigo_html);
 }
 
 var mi_funcion= function(request, response){
@@ -62,8 +68,8 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('index.html',codigo_html);
   */
   codigo_html+="</body></html>";
-  fs.appendFile('informacion.html',codigo_html);
-  var cad = fs.readFileSync('informacion.html','utf8');
+  fs.appendFile('informacion_s.html',codigo_html);
+  var cad = fs.readFileSync('informacion_s.html','utf8');
   response.send(cad);
 
   
