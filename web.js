@@ -10,7 +10,7 @@ var int_network2;
 
 
 //var codigo_html="<html><head></head><body>"; 
-var antjson="{medidas:[]}";
+var antjson="{medidas:[{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}]}";
 var json="";
 console.log("iniciando la aplicacion");
 
@@ -19,13 +19,8 @@ var o="G";
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
- 
- if(o==="G"){
-   json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
-   o="U";
- }else{
    json+=",{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
- };
+ 
 /*   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
