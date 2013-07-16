@@ -78,7 +78,7 @@ var mi_funcion= function(request, response){
   fs.appendFile('informacion.json',"}");
   var cad = fs.readFile('informacion.json',function (err, data){
   if (err) throw err;
-  response.set('Content-Type', 'text/json');
+  response.set('Content-Type', 'application/json');
   response.send(cad);
 });
   
