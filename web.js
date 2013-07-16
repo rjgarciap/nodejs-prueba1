@@ -16,20 +16,20 @@ console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
 
-function clock(){
- cpu_info2 =os.cpus();
- int_network2=os.networkInterfaces();
-   json+="Free memory:"+os.freemem()+",";
-   json+="Informacion CPUs: {";
-   //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
-   for(var i=0;i<cpu_info2.length;i++){
-   if(i!=cpu_info2.length-1){json+="{model:"+cpu_info2[i]["model"]+",speed:"+cpu_info2[i]["speed"]+"times:{user:"+cpu_info2[i]["times"]["user"]+",nice:"+cpu_info2[i]["times"]["nice"]+",sys:"+cpu_info2[i]["times"]["sys"]+",idle:"+cpu_info2[i]["times"]["idle"]+",irq:"+cpu_info2[i]["times"]["irq"]+"}},";
-}else{
-json+="{model:"+cpu_info2[i]["model"]+",speed:"+cpu_info2[i]["speed"]+"times:{user:"+cpu_info2[i]["times"]["user"]+",nice:"+cpu_info2[i]["times"]["nice"]+",sys:"+cpu_info2[i]["times"]["sys"]+",idle:"+cpu_info2[i]["times"]["idle"]+",irq:"+cpu_info2[i]["times"]["irq"]+"}}}";
-}
+//function clock(){
+// cpu_info2 =os.cpus();
+// int_network2=os.networkInterfaces();
+//   json+="Free memory:"+os.freemem()+",";
+//   json+="Informacion CPUs: {";
+//   //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
+//   for(var i=0;i<cpu_info2.length;i++){
+//   if(i!=cpu_info2.length-1){json+="{model:"+cpu_info2[i]["model"]+",speed:"+cpu_info2[i]["speed"]+"times:{user:"+cpu_info2[i]["times"]["user"]+",nice:"+cpu_info2[i]["times"]["nice"]+",sys:"+cpu_info2[i]["times"]["sys"]+",idle:"+cpu_info2[i]["times"]["idle"]+",irq:"+cpu_info2[i]["times"]["irq"]+"}},";
+//}else{
+//json+="{model:"+cpu_info2[i]["model"]+",speed:"+cpu_info2[i]["speed"]+"times:{user:"+cpu_info2[i]["times"]["user"]+",nice:"+cpu_info2[i]["times"]["nice"]+",sys:"+cpu_info2[i]["times"]["sys"]+",idle:"+cpu_info2[i]["times"]["idle"]+",irq:"+cpu_info2[i]["times"]["irq"]+"}}}";
+//}
 
-   //codigo_html+="<li><b>Modelo: </b>"+cpu_info2[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info2[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info2[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info2[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info2[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info2[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info2[i]["times"]["irq"]+"</li></ul></li><br>";
-}
+//   //codigo_html+="<li><b>Modelo: </b>"+cpu_info2[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info2[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info2[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info2[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info2[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info2[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info2[i]["times"]["irq"]+"</li></ul></li><br>";
+//}
   //codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
   //recorro interface network
     //for(var hola in int_network2){
@@ -42,8 +42,8 @@ json+="{model:"+cpu_info2[i]["model"]+",speed:"+cpu_info2[i]["speed"]+"times:{us
 //}//codigo_html+="</ul></li>" 
   //  }
 //codigo_html+="</ul></li></ul>";
-fs.appendFile('informacion_s.json',json);
-}
+//fs.appendFile('informacion_s.json',json);
+//}
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
@@ -75,7 +75,7 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('index.html',codigo_html);
   */
   //codigo_html+="</body></html>";
-  fs.appendFile('informacion_s.json',"}");
+  fs.writeFile('informacion_s.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}");
   var cad = fs.readFile('informacion_s.json',function (err, data){
   if (err) throw err;
   response.set('Content-Type', 'application/json');
