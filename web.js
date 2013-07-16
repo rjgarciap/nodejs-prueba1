@@ -6,6 +6,10 @@ var os = require('os');
 
 console.log("iniciando la aplicacion");
 
+var int=self.setInterval(function(){clock()},1000);
+function clock(){
+fs.writeFileSync('informacion.html',os.cpus());
+}
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
@@ -33,7 +37,7 @@ var mi_funcion= function(request, response){
   
 
 	
-  codigo_html+="</ul></li></ul></body></html>";
+  codigo_html+="</ul></li></ul><a href='./informacion.htlm'></a></body></html>";
   fs.writeFileSync('index.html',codigo_html);
   var cad = fs.readFileSync('index.html','utf8');
   response.send(cad);
