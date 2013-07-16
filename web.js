@@ -78,7 +78,7 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('informacion1.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}");
   var cad = fs.readFile('informacion1.json',function (err, data){
   if (err) throw err;
-  response.set('Content-Type', 'application/json;charser=UTF-8');
+  
   response.send(cad);
 });
   
