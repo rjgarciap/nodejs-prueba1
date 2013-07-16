@@ -14,7 +14,7 @@ var json="{";
 
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){clock()},1000);
+//var int=setInterval(function(){clock()},1000);
 
 //function clock(){
 // cpu_info2 =os.cpus();
@@ -88,7 +88,7 @@ var mi_funcion= function(request, response){
 };
 
 app.get('/', mi_funcion);
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5050;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
