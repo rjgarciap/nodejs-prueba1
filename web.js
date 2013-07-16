@@ -16,7 +16,7 @@ if(comp==null){
 }else{
 
   var codigo_html="";
-}
+};
 
 console.log("iniciando la aplicacion");
 
