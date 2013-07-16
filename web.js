@@ -75,10 +75,10 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('index.html',codigo_html);
   */
   //codigo_html+="</body></html>";
-  fs.append('informacion_s.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}",');
+  fs.writeFile('informacion_s.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}");
   var cad = fs.readFile('informacion_s.json',function (err, data){
   if (err) throw err;
-  response.set('Content-Type', 'application/json');
+  response.set('Content-Type', 'application/json;charser=UTF-8');
   response.send(cad);
 });
   
@@ -88,7 +88,7 @@ var mi_funcion= function(request, response){
 };
 
 app.get('/', mi_funcion);
-var port = process.env.PORT || 5050;
+var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
