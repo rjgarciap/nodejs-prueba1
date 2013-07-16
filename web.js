@@ -15,7 +15,6 @@ var json="";
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
-var o="G";
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
@@ -45,7 +44,7 @@ json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'time
 //}//codigo_html+="</ul></li>" 
   //  }
 //codigo_html+="</ul></li></ul>";
-fs.writeFileSync('informacion_s.html',antjson);
+fs.writeFileSync('informacion_s.json',antjson);
 }
 
 var mi_funcion= function(request, response){
@@ -79,11 +78,12 @@ var mi_funcion= function(request, response){
   */
   //codigo_html+="</body></html>";
   
-  var cad = fs.readFileSync('informacion_s.html','utf8');
-
+  var cad = fs.readFileSync('informacion_s.json',function(err,data){
+  if(err) throw err;
+  response.set('Content-Type','application/json');
   response.send(cad);
-
-  
+});
+ 
  
 };
 
