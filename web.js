@@ -75,7 +75,7 @@ var mi_funcion= function(request, response){
   fs.writeFileSync('index.html',codigo_html);
   */
   //codigo_html+="</body></html>";
-  fs.writeFile('informacion_s.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}");
+  fs.writeFile('informacion_s.json'," {'menu': {'id': 'file','value': 'File','popup': {'menuitem': [{'value': 'New', 'onclick': 'CreateNewDoc()'},{'value': 'Open', 'onclick': 'OpenDoc()'},{'value': 'Close', 'onclick': 'CloseDoc()'}]}}}",'UTF-8');
   var cad = fs.readFile('informacion_s.json',function (err, data){
   if (err) throw err;
   response.set('Content-Type', 'application/json');
