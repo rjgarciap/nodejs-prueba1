@@ -3,9 +3,9 @@ var express = require('express');
 var app = express(); //.createServer(express.logger());
 
 var os = require('os');
-
+ var cpu_info2;
+ var int_network;
 console.log("iniciando la aplicacion");
-var cpu_info;
 var int=setInterval(function(){clock()},1000);
 function clock(){
  cpu_info2 =os.cpus();
