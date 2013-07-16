@@ -19,7 +19,13 @@ var int=setInterval(function(){clock()},1000);
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
-   json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"},";
+ var o=0;
+ if(o==0){
+   json+="{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
+   o++;
+ }else{
+   json+=",{Free memory:"+os.freemem()+",Total Memory:"+os.totalmem()+",uptime:"+os.uptime()+"}";
+ };
 /*   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
