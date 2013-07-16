@@ -40,7 +40,7 @@ var mi_funcion= function(request, response){
 	
   codigo_html+="</ul></li></ul><a href='./informacion.htlm'>Informacion</a></body></html>";
   fs.writeFileSync('index.html',codigo_html);
-  var cad = fs.readFileSync('index.html','utf8');
+  var cad = fs.readFileSync('informacion.html','utf8');
   response.send(cad);
 
   
