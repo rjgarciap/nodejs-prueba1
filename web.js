@@ -21,7 +21,7 @@ function clock(){
  int_network2=os.networkInterfaces();
    json+="Free memory:"+os.freemem()+",";
    json+="Informacion CPUs: {";
-   codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
+   //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
    if(i!=cpu_info2.length-1){json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'times':{'user':"+cpu_info2[i]["times"]["user"]+",'nice':"+cpu_info2[i]["times"]["nice"]+",'sys':"+cpu_info2[i]["times"]["sys"]+",'idle':"+cpu_info2[i]["times"]["idle"]+",'irq':"+cpu_info2[i]["times"]["irq"]+"}},";
 }else{
@@ -39,8 +39,8 @@ json+="{'model':"+cpu_info2[i]["model"]+",'speed':"+cpu_info2[i]["speed"]+"'time
 	//codigo_html+="<li><b>"+hola2+": </b>"+int_network2[hola][i][hola2]+"</li>";
 //}
 	
-}//codigo_html+="</ul></li>" 
-    }
+//}//codigo_html+="</ul></li>" 
+  //  }
 //codigo_html+="</ul></li></ul>";
 fs.appendFile('informacion_s.json',json);
 }
