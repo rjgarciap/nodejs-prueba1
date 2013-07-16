@@ -11,7 +11,7 @@ var int_network2;
 
 //var codigo_html="<html><head></head><body>"; 
 var antjson="{final:final}";
-var json;
+var json="";
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},1000);
