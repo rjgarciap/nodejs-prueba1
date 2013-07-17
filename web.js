@@ -109,7 +109,7 @@ var funcionJSON= function(request, response){
   } 
   
 */
-response.send(parsed['medidas'][0]);
+response.send(parsed['medidas'][1]);
   //response.attachment('informacion.json');
  
 
