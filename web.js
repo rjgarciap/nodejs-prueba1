@@ -83,7 +83,7 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 }
 	cpustring += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime>"+uptime2+"</uptime><totalmem>"+totalmem2+"</totalmem><freemem2>"+freemem2+"</freemem>"+cpustring+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime>"+uptime2+"</uptime><totalmem>"+totalmem2+"</totalmem><freemem>"+freemem2+"</freemem>"+cpustring+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
