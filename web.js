@@ -78,7 +78,7 @@ var mi_funcion2 = function(request, response) {
 
   //Si quito 2º parámetro (encoding) al entrar en la web me deja descargar el xml perfect y si pongo  utf-8 no sale el texto como xml. Había que usar response.set()!!!!
 
-  fs.readFileSync('medidas.xml','UTF-8');
+  var data=fs.readFileSync('medidas.xml','UTF-8');
   response.set('Content-Type', 'text/xml');
   response.send(data); 
   
