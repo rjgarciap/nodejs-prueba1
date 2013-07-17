@@ -14,7 +14,7 @@ var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){clock()},1000);
+var int=setInterval(function(){clock()},3000);
 function clock(){
  cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
@@ -80,6 +80,7 @@ var mi_funcion= function(request, response){
   
   var cad = fs.readFileSync('informacion_s.json','UTF-8');
   response.set('Content-Type','application/json');
+  response.attachment('informacion_s.json');
   response.send(cad);
 
  
