@@ -100,7 +100,7 @@ var funcionJSON= function(request, response){
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  response.send(parsed['medidas']); 
+  response.send(parsed['medidas'][0]); 
 
 
   //response.attachment('informacion.json');
