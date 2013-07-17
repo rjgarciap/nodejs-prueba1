@@ -7,7 +7,7 @@ var os = require('os');
 
 var cpu_info2=os.cpus();
 var int_network2;
-
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
 var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
 
 for(var i=0;i<cpu_info2.length;i++){
