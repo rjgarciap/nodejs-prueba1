@@ -10,30 +10,30 @@ var int_network2;
 
 
 //var codigo_html="<html><head></head><body>"; 
-var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime();
+var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
 
 for(var i=0;i<cpu_info2.length;i++){
    
-antjson+=",\"model\":"+cpu_info2[i]["model"]+",\"speed\":"+cpu_info2[i]["speed"]+"\"times\":{\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+"}";
+antjson+=",\"cputimes\":{\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"];
 
 };
-antjson+="}]}"
+antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},3000);
 function clock(){
  int_network2=os.networkInterfaces();
-   json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+"}";
+   json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
  
 //   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
    
-antjson+=",\"model\":"+cpu_info2[i]["model"]+",\"speed\":"+cpu_info2[i]["speed"]+"\"times\":[\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+"]";
+antjson+=",\"cputimes\":{\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"];
 
 };
-	antjson=antjson.replace("]}",json+"]}");
+	antjson=antjson.replace("}}]}",json+"}}]}");
    //codigo_html+="<li><b>Modelo: </b>"+cpu_info2[i]["model"]+"</li><li><b>Speed: </b>"+cpu_info2[i]["speed"]+"</li><li><b>Tiempos: </b><br><ul><li><b>user: </b>"+cpu_info2[i]["times"]["user"]+"</li><li><b>nice: </b>"+cpu_info2[i]["times"]["nice"]+"</li><li><b>sys: </b>"+cpu_info2[i]["times"]["sys"]+"</li><li><b>idle: </b>"+cpu_info2[i]["times"]["idle"]+"</li><li><b>irq: </b>"+cpu_info2[i]["times"]["irq"]+"</li></ul></li><br>";
 //}
   //codigo_html+="</li><li><p><b>Network Interface: </b></p><ul>";
@@ -48,7 +48,7 @@ antjson+=",\"model\":"+cpu_info2[i]["model"]+",\"speed\":"+cpu_info2[i]["speed"]
 //}//codigo_html+="</ul></li>" 
   //  }
 //codigo_html+="</ul></li></ul>";
-fs.writeFileSync('informacion_s.json',antjson);
+fs.writeFileSync('informacion.json',antjson);
 }
 
 var mi_funcion= function(request, response){
@@ -82,9 +82,9 @@ var mi_funcion= function(request, response){
   */
   //codigo_html+="</body></html>";
   
-  var cad = fs.readFileSync('informacion_s.json','UTF-8');
+  var cad = fs.readFileSync('informacion.json','UTF-8');
   response.set('Content-Type','application/json');
-  response.attachment('informacion_s.json');
+  response.attachment('informacion.json');
   response.send(cad);
 
  
