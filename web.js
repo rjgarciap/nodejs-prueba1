@@ -39,6 +39,8 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 
 
 
+
+};
 //XML
 
 
@@ -59,11 +61,10 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
-
 	antjson=antjson.replace("]}",json+"]}");
 
 fs.writeFileSync('informacion.json',antjson);
-};
+}
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
