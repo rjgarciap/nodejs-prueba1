@@ -25,6 +25,8 @@ var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
 
 var int=setInterval(function(){jsonvar()},3000);
 function jsonvar(){
+//JSON
+
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
  
@@ -40,7 +42,7 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 //XML
 
 
-var uptime = os.uptime();
+	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
 	var cpus = os.cpus();
@@ -57,11 +59,11 @@ var uptime = os.uptime();
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
-};
+
 	antjson=antjson.replace("]}",json+"]}");
 
 fs.writeFileSync('informacion.json',antjson);
-}
+};
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
