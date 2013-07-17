@@ -80,7 +80,7 @@ var mi_funcion= function(request, response){
   
   var cad = fs.readFile('informacion_s.json',function(err,data){
   if(err) throw err;
-  response.set('Content-Type','application/json');
+  response.set('Content-Type','text/x-json');
   response.send(cad);
 });
  
