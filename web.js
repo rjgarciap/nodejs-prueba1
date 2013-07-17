@@ -97,7 +97,7 @@ var funcionJSON= function(request, response){
   console.log("hemos recibido algo");
   
   var data1=fs.readFileSync('informacion.json','UTF-8');
-  var parsed=JSON.parse('informacion.json');
+  var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
   response.send(parsed[0]); 
