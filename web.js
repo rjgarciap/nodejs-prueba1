@@ -18,10 +18,10 @@ function hora(){
 	
         return horita;
 }
-	var uptime = os.uptime2();
-	var totalmem = os.totalmem2();
-	var freemem = os.freemem2();
-	var cpus = os.cpus2();
+	var uptime = os.uptime();
+	var totalmem = os.totalmem();
+	var freemem = os.freemem();
+	var cpus = os.cpus();
 	var cpustring = "<cputimes>";
 //XML
 
@@ -60,7 +60,7 @@ function json_xml_var(){
 
 
  int_network2=os.networkInterfaces();
-   json+=",{\"freemem2ory\":"+freemem2+",\"totalmem2ory\":"+totalmem2+",\"uptime2\":"+uptime2+",\"cputimes\":{";
+   json+=",{\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime2+",\"cputimes\":{";
  
    for(var i=0;i<cpus2.length;i++){
 if(i===cpus2.length-1){   
@@ -74,16 +74,16 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 
 //XML
 
-	var cpustring2 = "<cputimes>";
+	var cpustring = "<cputimes>";
 	
 	for(var i=0; i<cpus2.length;i++){
 	
-	cpustring2 += "<user>"+cpus2[i]["times"]["user"]+"</user><nice>"+cpus2[i]["times"]["nice"]+"</nice><sys>"+cpus2[i]["times"]["sys"]+"</sys><idle>"+cpus2[i]["times"]["idle"]+"</idle><irq>"+cpus2[i]["times"]["irq"]+"</irq>";   
+	cpustring += "<user>"+cpus2[i]["times"]["user"]+"</user><nice>"+cpus2[i]["times"]["nice"]+"</nice><sys>"+cpus2[i]["times"]["sys"]+"</sys><idle>"+cpus2[i]["times"]["idle"]+"</idle><irq>"+cpus2[i]["times"]["irq"]+"</irq>";   
   
 }
-	cpustring2 += "</cputimes>";	
+	cpustring += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime2>"+uptime2+"</uptime2><totalmem2>"+totalmem2+"</totalmem2><freemem2>"+freemem2+"</freemem2>"+cpustring2+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime>"+uptime2+"</uptime><totalmem>"+totalmem2+"</totalmem><freemem2>"+freemem2+"</freemem>"+cpustring+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
