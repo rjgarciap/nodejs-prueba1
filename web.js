@@ -15,7 +15,7 @@ function hora(){
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"\" - "+fecha.getDate();
+	var horita =  "\""+hora +":"+ minuto +":"+ segundo+" - "+fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getYear()+"\"";
 	
         return horita;
 }
