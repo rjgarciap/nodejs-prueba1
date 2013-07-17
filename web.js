@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var os = require('os');
 
-//Cuidado con la hora en el json si no se pone como string(\"hora\"), da error porque piensa que este separado.
+//Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
 function hora(){
 	var fecha = new Date();
@@ -15,7 +15,7 @@ function hora(){
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"\"";
+	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"\" - "+fecha.getDate();
 	
         return horita;
 }
