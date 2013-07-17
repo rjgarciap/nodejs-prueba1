@@ -5,6 +5,14 @@ var fs = require('fs');
 
 var os = require('os');
 
+//comprueba si es un numero
+function esEntero(x){
+	var y = parseInt(x);
+	if (isNaN(y)) 
+		return false;
+	return x == y && x.toString() == y.toString();
+}
+
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
 function hora(){
@@ -103,7 +111,11 @@ var funcionJSON= function(request, response){
   response.set('Content-Type', 'application/json');
   
   if(request.query.q.general==='medidas'){
-  response.send(parsed[request.query.q]);
+     if(esEntero(request.query.q.numero){
+       response.send(parsed[request.query.q.general][request.query.q.numero]);
+     }else{
+       response.send(parsed[request.query.q.general]);
+     }
   }else{
   response.send(data1);
   } 
