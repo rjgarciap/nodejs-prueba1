@@ -88,7 +88,7 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
-        fs.writeFileSync('informacion.json',antjson);
+        fs.writeFileSync('informacion.json',newjson);
 };
 
 var mi_funcion= function(request, response){
