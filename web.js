@@ -88,7 +88,7 @@ var mi_funcion= function(request, response){
   
   var cad = fs.readFileSync('informacion.json','UTF-8');
   response.set('Content-Type','application/json');
-  response.attachment('informacion.json');
+  //response.attachment('informacion.json');
   response.send(cad);
 
  
