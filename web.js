@@ -44,7 +44,7 @@ function hora(){
 	cpuString2 += "</cputimes>";
 	var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //Generando JSON
-	var antjson="{\"medidas\":[{\"date\":"+hora()+",\"freememory\":"+freemem+",\"totalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+	var antjson="{\"medidas\":[{\"date\":"+hora()+",\"freememory\":"+freemem+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
 	for(var i=0;i<cpus.length;i++){
 		if(i===cpus.length-1){
@@ -112,6 +112,25 @@ var funcionJSON= function(request, response){
 
  
      if(esEntero(request.query.q)){
+       switch (request.query.b) {
+    case 'date':
+       response.send(parsed['medidas'][request.query.q]['date']);
+       break
+    case 'freememory':
+      response.send(parsed['medidas'][request.query.q]['freememory']);
+       break
+    case 'totalmemory':
+       response.send(parsed['medidas'][request.query.q]['totalmemory']);
+       break
+    case 'uptimes':
+       response.send(parsed['medidas'][request.query.q]['uptimes']);
+       break
+    case 'cputimes':
+       response.send(parsed['medidas'][request.query.q]['cputimes']);
+       break
+    default:
+       response.send(parsed['medidas']);
+} 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
        response.send(parsed['medidas']);
