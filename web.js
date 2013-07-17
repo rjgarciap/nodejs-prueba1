@@ -27,7 +27,7 @@ var cpuString2 = "<cputimes>";
 
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
-var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+uptime+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
 for(var i=0;i<cpus.length;i++){
 if(i===cpus.length-1){
@@ -43,7 +43,7 @@ console.log("iniciando la aplicacion");
 var int=setInterval(function(){json_xml_var()},5000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
-   json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+uptime+",\"cputimes\":{";
+   json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
  
    for(var i=0;i<cpus.length;i++){
 if(i===cpus.length-1){   
@@ -111,7 +111,7 @@ app.get('/xml', mi_funcion2);
 app.get('/json', mi_funcion);
 
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5090;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
