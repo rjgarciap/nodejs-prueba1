@@ -31,7 +31,7 @@ function clock(){
 //   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
-   
+if(i===cpu_info2.length-1){   
 json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"];
 }else{   
 json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
