@@ -112,7 +112,7 @@ var funcionJSON= function(request, response){
 
  
      if(esEntero(request.query.q)){
-       response.send(parsed['medidas'][request.query.q.numero]);
+       response.send(parsed['medidas'][request.query.q]);
      }else{
        response.send(parsed['medidas']);
      }
