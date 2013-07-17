@@ -88,8 +88,9 @@ var mi_funcion2 = function(request, response) {
   
 };
 
-app.get('/json', mi_funcion);
 app.get('/xml', mi_funcion2);
+app.get('/json', mi_funcion);
+
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
