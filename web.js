@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var os = require('os');
 
-var cpu_info2=os.cpus();
+
 
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
@@ -27,13 +27,13 @@ var cpuString2 = "<cputimes>";
 
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
-var antjson="{\"medidas\":[{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+uptime+",\"cputimes\":{";
 
-for(var i=0;i<cpu_info2.length;i++){
-if(i===cpu_info2.length-1){
-antjson+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"];
+for(var i=0;i<cpus.length;i++){
+if(i===cpus.length-1){
+antjson+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"];
 }else{   
-antjson+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
+antjson+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"]+",";
 }
 };
 antjson+="}}]}"
@@ -43,23 +43,19 @@ console.log("iniciando la aplicacion");
 var int=setInterval(function(){json_xml_var()},5000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
-   json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
+   json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+uptime+",\"cputimes\":{";
  
-   for(var i=0;i<cpu_info2.length;i++){
-if(i===cpu_info2.length-1){   
-json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+"}}";
+   for(var i=0;i<cpus.length;i++){
+if(i===cpus.length-1){   
+json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"]+"}}";
 }else{   
-json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
+json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"]+",";
 }
 
 }
 	antjson=antjson.replace("]}",json+"]}");
 
 
-	var uptime = os.uptime();
-	var totalmem = os.totalmem();
-	var freemem = os.freemem();
-	var cpus = os.cpus();
 	var cpuString = "<cputimes>";
 	
 	for(var i=0; i<cpus.length;i++){
