@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var os = require('os');
 
-var cpu_info2;
+var cpu_info2=os.cpus();
 var int_network2;
 
 
@@ -23,7 +23,6 @@ console.log("iniciando la aplicacion");
 
 var int=setInterval(function(){clock()},3000);
 function clock(){
- cpu_info2 =os.cpus();
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+"}";
  
