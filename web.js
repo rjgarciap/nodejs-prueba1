@@ -39,7 +39,7 @@ var json="";
 console.log("iniciando la aplicacion");
 
 //repeticion
-var int=setInterval(function(){json_xml_var()},10000);
+var int=setInterval(function(){json_xml_var()},3000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
