@@ -11,7 +11,7 @@ function esEntero(x){
 	if (isNaN(y)) 
 		return false;
 	return x == y && x.toString() == y.toString();
-}
+};
 
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
@@ -111,7 +111,7 @@ var funcionJSON= function(request, response){
   response.set('Content-Type', 'application/json');
   
   if(request.query.q.general==='medidas'){
-     if(esEntero(request.query.q.numero){
+     if(esEntero(request.query.q.numero)){
        response.send(parsed[request.query.q.general][request.query.q.numero]);
      }else{
        response.send(parsed[request.query.q.general]);
