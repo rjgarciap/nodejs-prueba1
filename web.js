@@ -38,7 +38,8 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},1000);
+//repeticion
+var int=setInterval(function(){json_xml_var()},10000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
@@ -53,6 +54,7 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 }
 	antjson=antjson.replace("]}",json+"]}");
 
+//XML
 
 	var cpuString = "<cputimes>";
 	
