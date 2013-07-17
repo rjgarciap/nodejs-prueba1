@@ -38,7 +38,7 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},3000);
+var int=setInterval(function(){json_xml_var()},1000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
@@ -109,7 +109,7 @@ app.get('/xml', mi_funcion2);
 app.get('/json', mi_funcion);
 
 
-var port = process.env.PORT || 5090;
+var port = process.env.PORT || 5190;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
