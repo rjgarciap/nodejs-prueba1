@@ -23,12 +23,11 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){clock()},3000);
-function clock(){
+var int=setInterval(function(){jsonvar()},3000);
+function jsonvar(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
  
-//   json+="Informacion CPUs: {";
    //codigo_html+="<ul><li><p><b>Free memory: </b>"+os.freemem()+"</p></li>";
    for(var i=0;i<cpu_info2.length;i++){
 if(i===cpu_info2.length-1){   
@@ -89,7 +88,7 @@ var mi_funcion= function(request, response){
   
   var cad = fs.readFileSync('informacion.json','UTF-8');
   response.set('Content-Type','application/json');
- 
+  //response.attachment('informacion.json');
   response.send(cad);
 
  
