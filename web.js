@@ -18,13 +18,12 @@ function hora(){
 	
         return horita;
 }
-	var uptime = os.uptime();
-	var totalmem = os.totalmem();
-	var freemem = os.freemem();
-	var cpus = os.cpus();
-	var cpuString = "<cputimes>";
+	var uptime = os.uptime2();
+	var totalmem = os.totalmem2();
+	var freemem = os.freemem2();
+	var cpus = os.cpus2();
+	var cpustring = "<cputimes>";
 //XML
-
 
 var cpuString2 = "<cputimes>";
 	
@@ -49,18 +48,25 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
+
 //repeticion
 var int=setInterval(function(){json_xml_var()},3000);
 var fecha2 = new Date();
 function json_xml_var(){
+        var uptime2 = os.uptime();
+	var totalmem2 = os.totalmem();
+	var freemem2 = os.freemem();
+	var cpus2 = os.cpus();
+
+
  int_network2=os.networkInterfaces();
-   json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+   json+=",{\"freemem2ory\":"+freemem2+",\"totalmem2ory\":"+totalmem2+",\"uptime2\":"+uptime2+",\"cputimes\":{";
  
-   for(var i=0;i<cpus.length;i++){
-if(i===cpus.length-1){   
-json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"]+"}}";
+   for(var i=0;i<cpus2.length;i++){
+if(i===cpus2.length-1){   
+json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice"]+",\"sys\":"+cpus2[i]["times"]["sys"]+",\"idle\":"+cpus2[i]["times"]["idle"]+",\"irq\":"+cpus2[i]["times"]["irq"]+"}}";
 }else{   
-json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]+",\"sys\":"+cpus[i]["times"]["sys"]+",\"idle\":"+cpus[i]["times"]["idle"]+",\"irq\":"+cpus[i]["times"]["irq"]+",";
+json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice"]+",\"sys\":"+cpus2[i]["times"]["sys"]+",\"idle\":"+cpus2[i]["times"]["idle"]+",\"irq\":"+cpus2[i]["times"]["irq"]+",";
 }
 
 }
@@ -68,16 +74,16 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 
 //XML
 
-	var cpuString = "<cputimes>";
+	var cpustring2 = "<cputimes>";
 	
-	for(var i=0; i<cpus.length;i++){
+	for(var i=0; i<cpus2.length;i++){
 	
-	cpuString += "<user>"+cpus[i]["times"]["user"]+"</user><nice>"+cpus[i]["times"]["nice"]+"</nice><sys>"+cpus[i]["times"]["sys"]+"</sys><idle>"+cpus[i]["times"]["idle"]+"</idle><irq>"+cpus[i]["times"]["irq"]+"</irq>";   
+	cpustring2 += "<user>"+cpus2[i]["times"]["user"]+"</user><nice>"+cpus2[i]["times"]["nice"]+"</nice><sys>"+cpus2[i]["times"]["sys"]+"</sys><idle>"+cpus2[i]["times"]["idle"]+"</idle><irq>"+cpus2[i]["times"]["irq"]+"</irq>";   
   
 }
-	cpuString += "</cputimes>";	
+	cpustring2 += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime2>"+uptime2+"</uptime2><totalmem2>"+totalmem2+"</totalmem2><freemem2>"+freemem2+"</freemem2>"+cpustring2+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
