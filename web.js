@@ -120,9 +120,9 @@ var funcionJSON= function(request, response){
       response.send(parsed['medidas'][request.query.q]['freememory']);
        break
     case 'totalmemory':
-       response.send(parsed['medidas'][request.query.q]['totalmemory']);
+       response.send(parsed['medidas'][request.query.q][request.query.b]);
        break
-    case 'uptimes':
+    case 'uptime':
        response.send(parsed['medidas'][request.query.q]['uptime']);
        break
     case 'cputimes':
