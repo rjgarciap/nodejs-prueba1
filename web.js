@@ -12,8 +12,6 @@ var os = require('os');
 	var freemem = os.freemem();
 	var cpus = os.cpus();
 	var cpuString = "<cputimes>";
-	
-var int_network2;
 //XML
 
 
@@ -24,7 +22,7 @@ var cpuString2 = "<cputimes>";
 	cpuString2 += "<user>"+cpus[i]["times"]["user"]+"</user><nice>"+cpus[i]["times"]["nice"]+"</nice><sys>"+cpus[i]["times"]["sys"]+"</sys><idle>"+cpus[i]["times"]["idle"]+"</idle><irq>"+cpus[i]["times"]["irq"]+"</irq>";   
   
 }
-
+cpuString2 += "</cputimes>";
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
@@ -40,7 +38,7 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){json_xml_var()},5000);
+var int=setInterval(function(){json_xml_var()},3000);
 function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
