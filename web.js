@@ -21,8 +21,8 @@ antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
 
-var int=setInterval(function(){jsonvar()},5000);
-function jsonvar(){
+var int=setInterval(function(){json_xml_var()},5000);
+function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
  
@@ -37,7 +37,7 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 	antjson=antjson.replace("]}",json+"]}");
 
 
-var uptime = os.uptime();
+	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
 	var cpus = os.cpus();
@@ -78,11 +78,10 @@ var mi_funcion2 = function(request, response) {
 
   //Si quito 2º parámetro (encoding) al entrar en la web me deja descargar el xml perfect y si pongo  utf-8 no sale el texto como xml. Había que usar response.set()!!!!
 
-  fs.readFile('medidas.xml', function (err, data) {
-  if (err) throw err;
+  fs.readFileSync('medidas.xml','UTF-8');
   response.set('Content-Type', 'text/xml');
   response.send(data); 
-  });
+  
 
   //response.attachment('medidas.xml');
   
