@@ -78,11 +78,9 @@ var mi_funcion= function(request, response){
   */
   //codigo_html+="</body></html>";
   
-  var cad = fs.readFileSync('informacion_s.html',function(err,data){
-  if(err) throw err;
-  response.set('Content-Type','text/html');
+  var cad = fs.readFileSync('informacion_s.html',¡'UTF-8');
   response.send(cad);
-});
+
  
  
 };
