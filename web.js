@@ -20,13 +20,9 @@ antjson+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["ti
 antjson+="}}]}"
 var json="";
 console.log("iniciando la aplicacion");
-//XML
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas></medidas>"
 
 var int=setInterval(function(){jsonvar()},3000);
 function jsonvar(){
-//JSON
-
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+os.freemem()+",\"TotalMemory\":"+os.totalmem()+",\"uptime\":"+os.uptime()+",\"cputimes\":{";
  
@@ -37,14 +33,11 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times"]["nice"]+",\"sys\":"+cpu_info2[i]["times"]["sys"]+",\"idle\":"+cpu_info2[i]["times"]["idle"]+",\"irq\":"+cpu_info2[i]["times"]["irq"]+",";
 }
 
+}
+	antjson=antjson.replace("]}",json+"]}");
 
 
-
-};
-//XML
-
-
-	var uptime = os.uptime();
+var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
 	var cpus = os.cpus();
@@ -61,10 +54,8 @@ json+="\"user\":"+cpu_info2[i]["times"]["user"]+",\"nice\":"+cpu_info2[i]["times
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
-	antjson=antjson.replace("]}",json+"]}");
-
-fs.writeFileSync('informacion.json',antjson);
-}
+        fs.writeFileSync('informacion.json',antjson);
+};
 
 var mi_funcion= function(request, response){
   var fs = require('fs');
@@ -80,14 +71,7 @@ var mi_funcion= function(request, response){
  
 };
 
-//Para el xml
-
-
-
-
-
-
-var miFuncion2 = function(request, response) {
+var mi_funcion2 = function(request, response) {
   
 
   console.log("hemos recibido algo");
@@ -104,9 +88,8 @@ var miFuncion2 = function(request, response) {
   
 };
 
-
 app.get('/json', mi_funcion);
-app.get('/xml', miFuncion2);
+app.get('/xml', mi_funcion2);
 
 var port = process.env.PORT || 5190;
 app.listen(port, function() {
