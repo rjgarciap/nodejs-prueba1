@@ -129,7 +129,7 @@ var funcionJSON= function(request, response){
        response.send(parsed['medidas'][request.query.q]['cputimes']);
        break
     default:
-       response.send(parsed['medidas']);
+       response.send(parsed['medidas'][request.query.q]);
 } 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
