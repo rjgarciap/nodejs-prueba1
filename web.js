@@ -59,7 +59,7 @@ function json_xml_var(){
 	var cpus2 = os.cpus();
 
 
- int_network2=os.networkInterfaces();
+
    json+=",{\"date\":"+hora()+",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime2+",\"cputimes\":{";
  
    for(var i=0;i<cpus2.length;i++){
@@ -70,8 +70,8 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 }
 
 }
-	
-	antjson=antjson.replace("]}",json+"]}");
+        var newjson=antjson.replace("]}",json+"]}");	
+	//antjson=antjson.replace("]}",json+"]}");
 
 //XML
 
