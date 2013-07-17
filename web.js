@@ -102,7 +102,7 @@ var funcionJSON= function(request, response){
   
   response.set('Content-Type', 'application/json');
   //response.send(parsed['medidas'][0]); 
-  response.add(req.params.name);
+  response.add(req.query.q);
 
   //response.attachment('informacion.json');
  
