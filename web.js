@@ -109,18 +109,14 @@ var funcionJSON= function(request, response){
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  if(request.query.q.general===null){
-  if(request.query.q.general==='medidas'){
+
+ 
      if(esEntero(request.query.q.numero)){
-       response.send(parsed[request.query.q.general][request.query.q.numero]);
+       response.send(parsed['medidas'][request.query.q.numero]);
      }else{
        response.send(parsed[request.query.q.general]);
      }
-  }else{
-  response.send(data1);
-  } }else{
-response.send(data1);
-}
+ 
 
 
   //response.attachment('informacion.json');
