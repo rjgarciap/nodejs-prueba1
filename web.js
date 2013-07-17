@@ -35,7 +35,7 @@ var cpuString2 = "<cputimes>";
 cpuString2 += "</cputimes>";
 var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
-var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
+var antjson="{\"medidas\":[{\"date\":"+hora()+",\"freememory\":"+freemem+",\"totalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
 for(var i=0;i<cpus.length;i++){
 if(i===cpus.length-1){
@@ -60,7 +60,7 @@ function json_xml_var(){
 
 
  int_network2=os.networkInterfaces();
-   json+=",{\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime2+",\"cputimes\":{";
+   json+=",{\"date\":"+hora()+",\"freememory\":"+freemem2+",\"totalmemory\":"+totalmem+",\"uptime\":"+uptime2+",\"cputimes\":{";
  
    for(var i=0;i<cpus2.length;i++){
 if(i===cpus2.length-1){   
