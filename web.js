@@ -26,7 +26,7 @@ var cpuString2 = "<cputimes>";
   
 }
 cpuString2 += "</cputimes>";
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora+":"+minuto+":"+segundo+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
@@ -68,7 +68,7 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 }
 	cpuString += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+hora+""+minuto+""+segundo+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+fecha.getHours()+":"+fecha.getMinutes()+""+fecha.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
