@@ -62,10 +62,10 @@ var mi_funcion= function(request, response){
   
   console.log("hemos recibido algo");
   
-fs.readFile('informacion.json', function (err, data) {
+fs.readFile('informacion.json', function (err, data1) {
   if (err) throw err;
   response.set('Content-Type', 'application/json');
-  response.send(data); 
+  response.send(data1); 
   });
 
   //response.attachment('informacion.json');
