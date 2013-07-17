@@ -15,7 +15,7 @@ function hora(){
 	if (minuto < 10) {minuto = "0" + minuto}
 	if (segundo < 10) {segundo = "0" + segundo}
 	var horita = hora + ":" + minuto + ":" + segundo
-	tiempo = setTimeout('hora()',1000)
+	
         return horita;
 }
 	var uptime = os.uptime();
@@ -120,7 +120,7 @@ app.get('/xml', mi_funcion2);
 app.get('/json', mi_funcion);
 
 
-var port = process.env.PORT || 5190;
+var port = process.env.PORT || 5050;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
