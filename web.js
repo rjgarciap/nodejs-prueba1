@@ -78,7 +78,7 @@ var mi_funcion= function(request, response){
   */
   //codigo_html+="</body></html>";
   
-  var cad = fs.readFile('informacion_s.html',function(err,data){
+  var cad = fs.readFileSync('informacion_s.html',function(err,data){
   if(err) throw err;
   response.set('Content-Type','text/html');
   response.send(cad);
