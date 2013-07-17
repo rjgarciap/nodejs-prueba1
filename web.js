@@ -15,7 +15,7 @@ function hora(){
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+" - "+fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getYear()+"\"";
+	var horita =  "\""+hora +":"+ minuto +":"+ segundo+" - "+fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"\"";
 	
         return horita;
 }
@@ -52,7 +52,6 @@ function hora(){
 
 //repeticion
 	var int=setInterval(function(){json_xml_var()},3000);
-	var fecha2 = new Date();
 function json_xml_var(){
         var uptime2 = os.uptime();
 	var totalmem2 = os.totalmem();
