@@ -6,6 +6,13 @@ var fs = require('fs');
 var os = require('os');
 
 var cpu_info2=os.cpus();
+
+	var uptime = os.uptime();
+	var totalmem = os.totalmem();
+	var freemem = os.freemem();
+	var cpus = os.cpus();
+	var cpuString = "<cputimes>";
+	
 var int_network2;
 //XML
 
