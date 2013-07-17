@@ -34,7 +34,7 @@ var cpuString2 = "<cputimes>";
   
 }
 cpuString2 += "</cputimes>";
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora()"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
