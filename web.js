@@ -101,14 +101,15 @@ var funcionJSON= function(request, response){
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  
+  /*
   if(request.query.q==='medidas'){
   response.send(parsed[request.query.q]);
   }else{
   response.send(data1);
   } 
   
-
+*/
+response.send(parsed['medidas'][0]);
   //response.attachment('informacion.json');
  
 
