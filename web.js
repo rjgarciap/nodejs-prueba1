@@ -117,20 +117,20 @@ var funcionJSON= function(request, response){
        response.send(parsed['medidas'][request.query.q]['date']);
        break
     case 'freememory':
-      response.send(parsed['medidas'][request.query.q]['freememory']);
+      response.send(""+parsed['medidas'][request.query.q]['freememory']);
        break
     case 'totalmemory':
-       response.send(parsed['medidas'][request.query.q][request.query.b]);
+       response.send(""+parsed['medidas'][request.query.q]['totalmemory']);
        break
     case 'uptime':
-       response.send(parsed['medidas'][request.query.q]['uptime']);
+       response.send(""+parsed['medidas'][request.query.q]['uptime']);
        break
     case 'cputimes':
        response.send(parsed['medidas'][request.query.q]['cputimes']);
        break
     default:
        response.send(parsed['medidas'][request.query.q]);
-} 
+    } 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
        response.send(parsed['medidas']);
