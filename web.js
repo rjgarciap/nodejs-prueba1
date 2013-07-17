@@ -102,7 +102,7 @@ var funcionJSON= function(request, response){
   
   response.set('Content-Type', 'application/json');
   
-  if(request.query.q.0==='medidas'){
+  if(request.query.q.general==='medidas'){
   response.send(parsed[request.query.q]);
   }else{
   response.send(data1);
