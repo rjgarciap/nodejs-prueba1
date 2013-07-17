@@ -43,6 +43,7 @@ console.log("iniciando la aplicacion");
 
 //repeticion
 var int=setInterval(function(){json_xml_var()},3000);
+var fecha2 = new Date();
 function json_xml_var(){
  int_network2=os.networkInterfaces();
    json+=",{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
@@ -68,7 +69,7 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 }
 	cpuString += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+fecha.getHours()+":"+fecha.getMinutes()+""+fecha.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+fecha2.getHours()+":"+fecha2.getMinutes()+":"+fecha2.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
