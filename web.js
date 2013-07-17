@@ -54,7 +54,7 @@ var mi_funcion= function(request, response){
 };
 
 app.get('/json', mi_funcion);
-app.get('/xml', mi_funcion2);
+
 var port = process.env.PORT || 5190;
 app.listen(port, function() {
   console.log("Listening on " + port);
