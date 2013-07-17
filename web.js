@@ -70,6 +70,7 @@ json+="\"user\":"+cpus2[i]["times"]["user"]+",\"nice\":"+cpus2[i]["times"]["nice
 }
 
 }
+	
 	antjson=antjson.replace("]}",json+"]}");
 
 //XML
