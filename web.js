@@ -6,10 +6,18 @@ var fs = require('fs');
 var os = require('os');
 
 
-	var fecha = new Date();
-	var hora = fecha.getHours();
-	var minuto = fecha.getMinutes();
-	var segundo = fecha.getSeconds();
+function hora(){
+	var fecha = new Date()
+	var hora = fecha.getHours()
+	var minuto = fecha.getMinutes()
+	var segundo = fecha.getSeconds()
+	if (hora < 10) {hora = "0" + hora}
+	if (minuto < 10) {minuto = "0" + minuto}
+	if (segundo < 10) {segundo = "0" + segundo}
+	var horita = hora + ":" + minuto + ":" + segundo
+	tiempo = setTimeout('hora()',1000)
+        return horita;
+}
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
@@ -26,7 +34,7 @@ var cpuString2 = "<cputimes>";
   
 }
 cpuString2 += "</cputimes>";
-var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
+var string = "<?xml version=\"1.0\" standalone=\"yes\"?><medidas><medida><date>"+hora()"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString2+"</medida></medidas>";
 //JSON
 var antjson="{\"medidas\":[{\"Freememory\":"+freemem+",\"TotalMemory\":"+totalmem+",\"uptime\":"+uptime+",\"cputimes\":{";
 
@@ -69,7 +77,7 @@ json+="\"user\":"+cpus[i]["times"]["user"]+",\"nice\":"+cpus[i]["times"]["nice"]
 }
 	cpuString += "</cputimes>";	
 
-	var stringNew = string.replace("</medidas>","<medida><date>"+fecha2.getHours()+":"+fecha2.getMinutes()+":"+fecha2.getSeconds()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
+	var stringNew = string.replace("</medidas>","<medida><date>"+hora()+"</date><uptime>"+uptime+"</uptime><totalmem>"+totalmem+"</totalmem><freemem>"+freemem+"</freemem>"+cpuString+"</medida></medidas>");
 	
 	string=stringNew;
 	fs.writeFileSync('medidas.xml',stringNew);
