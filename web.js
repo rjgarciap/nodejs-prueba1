@@ -6,7 +6,7 @@ var fs = require('fs');
 var os = require('os');
 
 
-	var startTime = new Date();
+	var fecha = new Date();
 	var hora = fecha.getHours();
 	var minuto = fecha.getMinutes();
 	var segundo = fecha.getSeconds();
