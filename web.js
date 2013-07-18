@@ -172,12 +172,9 @@ var funcionConsulta = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   var cadenaJSON=[];
-  for(var i=request.query.desde;i<request.query.hasta;i++){
+  for(var i=request.query.desde;i<=request.query.hasta;i++){
   cadenaJSON.push(parsed['medidas'][i]);
-  
-
-
-}
+  }
  response.send(cadenaJSON);
     
   
