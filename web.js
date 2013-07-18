@@ -194,9 +194,8 @@ var funcionConsultaFecha = function(request, response) {
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  if(q===undefin){
-
   
+  if(q!==undefined){
   if(esEntero(request.query.q)){
      if(request.query.date!==undefined){
      response.send(parsed['medidas'][q]['date'][request.query.date]);
