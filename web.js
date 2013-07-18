@@ -160,9 +160,32 @@ var funcionXML = function(request, response) {
   
 };
 
+var funcionConsulta = function(request, response) {
+  
+ var fs = require('fs');
+  
+  console.log("hemos recibido algo");
+  
+  var data1=fs.readFileSync('informacion.json','UTF-8');
+  //Para las consultas en el JSON
+  var parsed=JSON.parse(data1);
+  
+  response.set('Content-Type', 'application/json');
+  var cadenaJSON=[];
+  for(var i=request.query.desde;i<request.query.hasta;i++){
+  cadenaJSON.push(parsed['medidas'][i]);
+  
+
+
+}
+ response.send(cadenaJSON);
+    
+  
+};
+
 app.get('/xml', funcionXML);
 app.get('/json', funcionJSON);
-
+app.get('/json/consulta',funcionConsulta);
 
 var port = process.env.PORT || 5050;
 app.listen(port, function() {
