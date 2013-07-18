@@ -228,7 +228,7 @@ var funcionConsultaFranja = function(request, response) {
   response.set('Content-Type', 'application/json');
   
   
-  if(request.query.desde===undefined&&request.query.hasta===undefined){
+  if(request.query.desde===undefined||request.query.hasta===undefined){
      response.send("Error hay que introducir parametros desde y hasta");
   }else{
        var resultado=[];
@@ -240,7 +240,11 @@ var funcionConsultaFranja = function(request, response) {
           }
      }
 }
+   if(resultado.length===0){
+      resultado="No existen coincidencias (formato de fechas: 10:14:23 -> 101423)";
+   }
    response.send(resultado);
+  
 };
 
 app.get('/xml', funcionXML);
