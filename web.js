@@ -203,7 +203,7 @@ var funcionConsultaFecha = function(request, response) {
      if(request.query.date===undefined){
       response.send("Es necesario indicar una fecha como parametro");
      }else{
-      for(var i=0;i<parsed.length;i++){
+      for(var i=0;i<parsed['medidas'].length;i++){
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
           if(request.query.date===datecomp){
    		encontrado=response.send(parsed['medidas'][i]);
