@@ -22,8 +22,8 @@ function hora(){
 	var segundo = fecha.getSeconds();
         var dia=fecha.getDate();
         var month=fecha.getMonth();
-        if (dia < 10) {hora ="0"+ dia}
-        if (month < 10) {hora ="0"+ dia}
+        if (dia < 10) {dia ="0"+ dia}
+        if (month < 10) {month ="0"+ dia}
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
