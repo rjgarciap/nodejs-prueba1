@@ -207,6 +207,7 @@ var funcionConsultaFecha = function(request, response) {
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
           if(request.query.date===datecomp){
    		response.send(parsed['medidas'][i]);
+           break;
           }
       }
      }
