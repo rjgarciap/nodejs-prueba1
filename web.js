@@ -234,7 +234,7 @@ var funcionConsultaFranja = function(request, response) {
        var resultado=[];
        for(var i=0;i<parsed['medidas'].length;i++){
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
-          if(request.query.desde<datecomp&&request.query.hasta>datecomp){
+          if(request.query.desde<=datecomp&&request.query.hasta>=datecomp){
    		resultado.push(parsed['medidas'][i]);
 
           }
