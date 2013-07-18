@@ -20,10 +20,14 @@ function hora(){
 	var hora = fecha.getHours();
 	var minuto = fecha.getMinutes();
 	var segundo = fecha.getSeconds();
+        var dia=fecha.getDate();
+        var month=fecha.getMonth();
+        if (dia < 10) {hora ="0"+ dia}
+        if (month < 10) {hora ="0"+ dia}
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"-"+fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"\"";
+	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"-"+dia+"/"+(month+1)+"/"+fecha.getFullYear()+"\"";
 	
         return horita;
 }
@@ -197,11 +201,12 @@ var funcionConsultaFecha = function(request, response) {
   
  
      if(request.query.date===undefined){
-      response.send("Error");
+      response.send("Es necesario indicar una fecha como parametro");
      }else{
       for(var i=0;i<parsed.length;i++){
-          if(date===parsed['medidas'][i]['date']){
-   		response.send(parsed['medidas'][i]['date']);
+          var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
+          if(date===datecomp){
+   		response.send(parsed['medidas'][i]);
           }
       }
      }
@@ -221,7 +226,7 @@ var funcionConsultaFranja = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  if(request.query.q===undefined){
+  if(request.query.desde===undefined&&request.query.hasta===undefined){
      response.send("Error");
   }else{
     if(esEntero(request.query.q)){
