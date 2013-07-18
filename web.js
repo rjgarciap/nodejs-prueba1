@@ -199,7 +199,7 @@ var funcionConsultaFecha = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  var encontrado="No existen coincidencias";
+  var encontrado="No existen coincidencias (formato de fechas: 10:14:23 -> 101423)";
      if(request.query.date===undefined){
       response.send("Es necesario indicar una fecha como parametro");
      }else{
