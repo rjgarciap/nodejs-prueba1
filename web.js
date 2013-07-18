@@ -211,10 +211,39 @@ var funcionConsultaFecha = function(request, response) {
   
 };
 
+var funcionConsultaFranja = function(request, response) {
+  
+ var fs = require('fs');
+  
+  console.log("hemos recibido algo");
+  
+  var data1=fs.readFileSync('informacion.json','UTF-8');
+  //Para las consultas en el JSON
+  var parsed=JSON.parse(data1);
+  
+  response.set('Content-Type', 'application/json');
+  
+  if(request.query.q===undefined){
+     response.send("Error");
+  }else{
+    if(esEntero(request.query.q)){
+     if(request.query.date===undefined){
+      response.send("Error");
+     }else{
+      response.send(parsed['medidas'][q]['date'][request.query.date]);
+     }
+    }else{
+     response.send("Error");
+  }
+  }
+  
+};
+
 app.get('/xml', funcionXML);
 app.get('/json', funcionJSON);
 app.get('/json/consulta',funcionConsulta);
 app.get('/json/consultaFecha',funcionConsultaFecha);
+app.get('/json/consultaFranja',funcionConsultaFranja);
 
 var port = process.env.PORT || 5050;
 app.listen(port, function() {
