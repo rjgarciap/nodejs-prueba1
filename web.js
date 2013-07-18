@@ -227,21 +227,19 @@ var funcionConsultaFranja = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  if(request.query.desde===undefined&&request.query.hasta===undefined){
-     response.send("Error");
-  }else{
-    if(esEntero(request.query.q)){
-     if(request.query.date!==undefined){
-      response.send(parsed['medidas'][request.query.q]['date'][request.query.date]);
-     }else{
-      
-      response.send("Error fecha");
-     }
-    }else{
-     response.send("Error numero");
-    }
-  }
   
+  if(request.query.desde===undefined&&request.query.hasta===undefined){
+     response.send("Error hay que introducir parametros desde y hasta");
+  }else{
+       var resultado=[];
+       for(var i=0;i<parsed['medidas'].length;i++){
+          var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
+          if(request.query.desde<datecomp&&request.query.hasta>datecomp){
+   		resultado.push(parsed['medidas'][i]);
+
+          }
+     }
+   response.send(resultado);
 };
 
 app.get('/xml', funcionXML);
