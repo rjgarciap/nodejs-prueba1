@@ -171,12 +171,15 @@ var funcionConsulta = function(request, response) {
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
+  if(esEntero(request.query.desde)&&esEntero(request.query.hasta)){
   var cadenaJSON=[];
   for(var i=request.query.desde;i<=request.query.hasta;i++){
-  cadenaJSON.push(parsed['medidas'][i]);
+     cadenaJSON.push(parsed['medidas'][i]);
   }
- response.send(cadenaJSON);
-    
+  response.send(cadenaJSON);
+  }else{
+    response.send("Consulta no valida.");
+  }
   
 };
 
