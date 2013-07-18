@@ -195,17 +195,18 @@ var funcionConsultaFecha = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  if(q!==undefined){
-  if(esEntero(request.query.q)){
-     if(request.query.date!==undefined){
-     response.send(parsed['medidas'][q]['date'][request.query.date]);
-     }else{
-      response.send("Error");
-     }
+  if(q===undefined){
+     response.send("Error");
   }else{
+    if(esEntero(request.query.q)){
+     if(request.query.date===undefined){
+      response.send("Error");
+     }else{
+      response.send(parsed['medidas'][q]['date'][request.query.date]);
+     }
+    }else{
      response.send("Error");
-  }}else{
-     response.send("Error");
+  }
   }
   
 };
