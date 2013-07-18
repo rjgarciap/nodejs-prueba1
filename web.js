@@ -23,7 +23,7 @@ function hora(){
         var dia=fecha.getDate();
         var month=fecha.getMonth();
         if (dia < 10) {dia ="0"+ dia}
-        if (month < 10) {month ="0"+ dia}
+        if (month < 10) {month ="0"+ month}
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
@@ -205,7 +205,7 @@ var funcionConsultaFecha = function(request, response) {
      }else{
       for(var i=0;i<parsed.length;i++){
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
-          if(date===datecomp){
+          if(request.query.date===datecomp){
    		response.send(parsed['medidas'][i]);
           }
       }
