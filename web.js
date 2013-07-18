@@ -239,6 +239,7 @@ var funcionConsultaFranja = function(request, response) {
 
           }
      }
+}
    response.send(resultado);
 };
 
