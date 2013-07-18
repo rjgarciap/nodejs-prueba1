@@ -195,7 +195,7 @@ var funcionConsultaFecha = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  if(q===undefined){
+  if(request.query.q===undefined){
      response.send("Error");
   }else{
     if(esEntero(request.query.q)){
