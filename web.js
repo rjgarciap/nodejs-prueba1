@@ -195,10 +195,14 @@ var funcionConsultaFecha = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
-  if(esEntero(request.query.q)&&request.query.fecha!==undefined){
-     response.send(parsed['medidas'][q]['date'][request.query.fecha]);
+  if(esEntero(request.query.q)){
+     if(request.query.date!==undefined){
+     response.send(parsed['medidas'][q]['date'][request.query.date]);
+     }else{
+      response.send("Error");
+     }
   }else{
-     response.send(parsed['medidas']);
+     response.send("Error");
   }
   
 };
