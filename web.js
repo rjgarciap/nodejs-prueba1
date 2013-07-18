@@ -183,9 +183,30 @@ var funcionConsulta = function(request, response) {
   
 };
 
+var funcionConsultaFecha = function(request, response) {
+  
+ var fs = require('fs');
+  
+  console.log("hemos recibido algo");
+  
+  var data1=fs.readFileSync('informacion.json','UTF-8');
+  //Para las consultas en el JSON
+  var parsed=JSON.parse(data1);
+  
+  response.set('Content-Type', 'application/json');
+  
+  if(esEntero(request.query.q)&&request.query.fecha!==undefined){
+     response.send(parsed['medidas'][q]['date'][request.query.fecha]);
+  }else{
+     response.send(parsed['medidas']);
+  }
+  
+};
+
 app.get('/xml', funcionXML);
 app.get('/json', funcionJSON);
 app.get('/json/consulta',funcionConsulta);
+app.get('/json/consultaFecha',funcionConsultaFecha);
 
 var port = process.env.PORT || 5050;
 app.listen(port, function() {
