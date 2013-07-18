@@ -202,7 +202,12 @@ var funcionConsultaFecha = function(request, response) {
      if(request.query.date===undefined){
       response.send("Error");
      }else{
-      response.send(parsed['medidas'][request.query.q]['date'][request.query.date]);
+      for(var i=0;i<parsed.length;i++){
+          if(date===parsed['medidas'][i]['date']){
+   		response.send(parsed['medidas'][i]['date']);
+          }
+      }
+      
      }
     }else{
      response.send("Error numero");
