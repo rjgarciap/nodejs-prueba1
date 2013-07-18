@@ -21,13 +21,13 @@ function hora(){
 	var minuto = fecha.getMinutes();
 	var segundo = fecha.getSeconds();
         var dia=fecha.getDate();
-        var month=fecha.getMonth();
+        var month=fecha.getMonth()+1;
         if (dia < 10) {dia ="0"+ dia}
         if (month < 10) {month ="0"+ month}
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"-"+dia+"/"+(month+1)+"/"+fecha.getFullYear()+"\"";
+	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"-"+dia+"/"+month+"/"+fecha.getFullYear()+"\"";
 	
         return horita;
 }
