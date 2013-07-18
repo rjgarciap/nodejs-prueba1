@@ -227,14 +227,15 @@ var funcionConsultaFranja = function(request, response) {
      response.send("Error");
   }else{
     if(esEntero(request.query.q)){
-     if(request.query.date===undefined){
-      response.send("Error");
+     if(request.query.date!==undefined){
+      response.send(parsed['medidas'][request.query.q]['date'][request.query.date]);
      }else{
-      response.send(parsed['medidas'][q]['date'][request.query.date]);
+      
+      response.send("Error fecha");
      }
     }else{
-     response.send("Error");
-  }
+     response.send("Error numero");
+    }
   }
   
 };
