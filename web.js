@@ -199,19 +199,19 @@ var funcionConsultaFecha = function(request, response) {
   
   response.set('Content-Type', 'application/json');
   
- 
+  var encontrado="No existen coincidencias";
      if(request.query.date===undefined){
       response.send("Es necesario indicar una fecha como parametro");
      }else{
       for(var i=0;i<parsed.length;i++){
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
           if(request.query.date===datecomp){
-   		response.send(parsed['medidas'][i]);
-           break;
+   		encontrado=response.send(parsed['medidas'][i]);
+
           }
       }
      }
-    
+    response.send(encontrado);
   
 };
 
