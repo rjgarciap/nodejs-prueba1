@@ -25,6 +25,7 @@ function recorrerJSON(x, dato){
 	return cadena;
 };
 
+
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
 function hora(){
