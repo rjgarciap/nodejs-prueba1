@@ -13,9 +13,9 @@ function esEntero(x){
 	return x == y && x.toString() == y.toString();
 };
 function recorrerJSON(x, dato){
-	var cadena=[];
+	var cadena="";
 	for(var i=0;i<dato.length;i++){
-		cadena.push(dato['medidas'][i]['date']);
+		cadena+=dato['medidas'][0][x];
 	}
 
 	return cadena;
