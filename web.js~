@@ -19,9 +19,9 @@ function recorrerJSON(x, dato){
 	for(var i=0;i<dato['medidas'].length;i++){
 		cadena.push(dato['medidas'][i][x]);
 	}
-	var jsonresultado=JSON.stringify(cadena);
-	return jsonresultado;
-
+	//var jsonresultado=JSON.stringify(cadena);
+	//return jsonresultado;
+	return cadena;
 };
 
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
@@ -255,7 +255,7 @@ var funcionConsultaFecha = function(request, response) {
   
 };
 
-//Consultar los datos entre dos horas
+//Consultar los datos entre dos horas en un rango ['desde','hasta']
 var funcionConsultaFranja = function(request, response) {
   
  var fs = require('fs');

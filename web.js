@@ -19,9 +19,10 @@ function recorrerJSON(x, dato){
 	for(var i=0;i<dato['medidas'].length;i++){
 		cadena.push(dato['medidas'][i][x]);
 	}
-	var jsonresultado=JSON.stringify(cadena);
-	return jsonresultado;
-
+	//Pasar a cadena JSON
+	//var jsonresultado=JSON.stringify(cadena);
+	//return jsonresultado;
+	return cadena;
 };
 
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
