@@ -164,7 +164,7 @@ var funcionJSON= function(request, response){
 	       response.send(recorrerJSON('cputimes',parsed));
 	       break
 	    default:
-	       response.send(parsed['medidas']);
+	       response.send("hola");
       } 
 	}else{
            response.send(parsed['medidas']);
