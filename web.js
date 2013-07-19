@@ -12,6 +12,15 @@ function esEntero(x){
 		return false;
 	return x == y && x.toString() == y.toString();
 };
+function recorrerJSON(x,parsed){
+	var cadena="";
+	for(var i=0;i<parsed.length;i++){
+		cadena+=parsed['medidas'][i][x];
+	}
+
+	return cadena;
+
+};
 
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
@@ -137,7 +146,29 @@ var funcionJSON= function(request, response){
     } 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
-       response.send(parsed['medidas']);
+	if(request.query.q==="todos"){
+	 switch (request.query.b) {
+	    case 'date':
+	       response.send(recorrerJSON('date',parsed));
+	       break
+	    case 'freememory':
+	      response.send(recorrerJSON('freememory',parsed));
+	       break
+	    case 'totalmemory':
+	       response.send(recorrerJSON('totalmemory',parsed));
+	       break
+	    case 'uptime':
+	       response.send(recorrerJSON('uptime',parsed));
+	       break
+	    case 'cputimes':
+	       response.send(recorrerJSON('cputimes',parsed));
+	       break
+	    default:
+	       response.send(parsed['medidas']);
+      } 
+	}else{
+           response.send(parsed['medidas']);
+	}
      }
  
 
@@ -175,14 +206,24 @@ var funcionConsulta = function(request, response) {
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  if(esEntero(request.query.desde)&&esEntero(request.query.hasta)){
-  var cadenaJSON=[];
-  for(var i=request.query.desde;i<=request.query.hasta;i++){
-     cadenaJSON.push(parsed['medidas'][i]);
-  }
-  response.send(cadenaJSON);
+  if(desde!==undefined||desde!==undefined){
+  	if(esEntero(request.query.desde)&&esEntero(request.query.hasta)){
+  		var cadenaJSON=[];
+ 		for(var i=request.query.desde;i<=request.query.hasta;i++){
+     			cadenaJSON.push(parsed['medidas'][i]);
+  		}
+  		response.send(cadenaJSON);
+  	}else{
+    		response.send("Consulta no valida.");
+  	}
   }else{
-    response.send("Consulta no valida.");
+	if(){
+
+
+
+	}else{
+	}
+
   }
   
 };
