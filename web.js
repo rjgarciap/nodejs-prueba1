@@ -15,7 +15,7 @@ function esEntero(x){
 function recorrerJSON(x, dato){
 	var cadena="";
 	for(var i=0;i<dato['medidas'].length;i++){
-		cadena+=dato['medidas'][i][x]+"\l";
+		cadena+=dato['medidas'][i][x]+"\n";
 	}
 
 	return cadena;
