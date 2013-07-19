@@ -13,7 +13,7 @@ function esEntero(x){
 	return x == y && x.toString() == y.toString();
 };
 function recorrerJSON(x,parsed){
-	var cadena[];
+	var cadena=[];
 	for(var i=0;i<parsed.length;i++){
 		cadena.push(parsed['medidas'][i][x]);
 	}
