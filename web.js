@@ -13,12 +13,12 @@ function esEntero(x){
 	return x == y && x.toString() == y.toString();
 };
 function recorrerJSON(x, dato){
-	var cadena="";
+	var cadena=[];
 	for(var i=0;i<dato['medidas'].length;i++){
-		cadena+=dato['medidas'][i][x]+"\n";
+		cadena.push(dato['medidas'][i][x]);
 	}
-
-	return cadena;
+	var jsonresultado=JSON.stringify(cadena);
+	return jsonresultado;
 
 };
 
