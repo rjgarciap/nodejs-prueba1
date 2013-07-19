@@ -5,13 +5,15 @@ var fs = require('fs');
 
 var os = require('os');
 
-//comprueba si es un numero
+//Metodo para comprobar si es un numero
 function esEntero(x){
 	var y = parseInt(x);
 	if (isNaN(y)) 
 		return false;
 	return x == y && x.toString() == y.toString();
 };
+
+//Metodo que recorre el objeto JSON e introduce en un array todos los datos "x" de cada elemento
 function recorrerJSON(x, dato){
 	var cadena=[];
 	for(var i=0;i<dato['medidas'].length;i++){
@@ -36,15 +38,16 @@ function hora(){
 	if (hora < 10) {hora ="0"+ hora}
 	if (minuto < 10) {minuto ="0"+ minuto}
 	if (segundo < 10) {segundo ="0"+ segundo}
-	var horita =  "\""+hora +":"+ minuto +":"+ segundo+"-"+dia+"/"+month+"/"+fecha.getFullYear()+"\"";
+	var resultHora =  "\""+hora +":"+ minuto +":"+ segundo+"-"+dia+"/"+month+"/"+fecha.getFullYear()+"\"";
 	
-        return horita;
+        return resultHora;
 }
 	var uptime = os.uptime();
 	var totalmem = os.totalmem();
 	var freemem = os.freemem();
 	var cpus = os.cpus();
 	var cpustring = "<cputimes>";
+
 //Generando XML
 
 	var cpuString2 = "<cputimes>";
@@ -71,7 +74,7 @@ function hora(){
 	console.log("iniciando la aplicacion");
 
 
-//repeticion
+//Métodos para la repeticion de codigo y generacion del XML/JSON
 	var int=setInterval(function(){json_xml_var()},3000);
 function json_xml_var(){
         var uptime2 = os.uptime();
@@ -197,6 +200,7 @@ var funcionXML = function(request, response) {
   
 };
 
+//Funcion que permite obtener medidas en un rango ['desde','hasta']
 var funcionConsulta = function(request, response) {
   
  var fs = require('fs');
@@ -222,6 +226,7 @@ var funcionConsulta = function(request, response) {
   
 };
 
+//Metodo para consultar el elemento relacionado con una sola fecha.
 var funcionConsultaFecha = function(request, response) {
   
  var fs = require('fs');
@@ -230,6 +235,7 @@ var funcionConsultaFecha = function(request, response) {
   
   var data1=fs.readFileSync('informacion.json','UTF-8');
   //Para las consultas en el JSON
+  //Transformo cadena JSON en un objeto
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
@@ -242,7 +248,6 @@ var funcionConsultaFecha = function(request, response) {
           var datecomp=parsed['medidas'][i]['date'].substring(0,2)+parsed['medidas'][i]['date'].substring(3,5)+parsed['medidas'][i]['date'].substring(6,8);
           if(request.query.date===datecomp){
    		encontrado=response.send(parsed['medidas'][i]);
-
           }
       }
      }
@@ -250,6 +255,7 @@ var funcionConsultaFecha = function(request, response) {
   
 };
 
+//Consultar los datos entre dos horas en un rango ['desde','hasta']
 var funcionConsultaFranja = function(request, response) {
   
  var fs = require('fs');
@@ -258,6 +264,7 @@ var funcionConsultaFranja = function(request, response) {
   
   var data1=fs.readFileSync('informacion.json','UTF-8');
   //Para las consultas en el JSON
+  //Transformo cadena JSON en un objeto
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
@@ -278,6 +285,7 @@ var funcionConsultaFranja = function(request, response) {
    if(resultado.length===0){
       resultado="No existen coincidencias (formato de fechas: 10:14:23 -> 101423)";
    }
+   
    response.send(resultado);
   
 };
