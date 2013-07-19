@@ -18,7 +18,7 @@ function recorrerJSON(x,parsed){
 		cadena+=parsed['medidas'][i][x];
 	}
 
-	return cadena;
+	return "hola2";
 
 };
 
