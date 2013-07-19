@@ -15,7 +15,7 @@ function esEntero(x){
 function recorrerJSON(x, dato){
 	var cadena="";
 	for(var i=0;i<dato.length;i++){
-		cadena+=dato['medidas'][0][x];
+		cadena+=dato['medidas'][i][x]+"\l";
 	}
 
 	return cadena;
@@ -150,7 +150,7 @@ var funcionJSON= function(request, response){
 	if(request.query.q==='todos'){
 	 switch (request.query.b) {
 	    case 'date':
-	       response.send(recorrerJSON('date',parsed));
+	       response.send(""+recorrerJSON('date',parsed));
 	       break
 	    case 'freememory':
 	      response.send(recorrerJSON('freememory',parsed));
