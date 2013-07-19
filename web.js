@@ -143,6 +143,7 @@ var funcionJSON= function(request, response){
        break
     default:
        response.send(parsed['medidas'][request.query.q]);
+       break;
     } 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
@@ -165,6 +166,7 @@ var funcionJSON= function(request, response){
 	       break
 	    default:
 	       response.send("hola");
+	       break
       } 
 	}else{
            response.send(parsed['medidas']);
