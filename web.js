@@ -206,7 +206,7 @@ var funcionConsulta = function(request, response) {
   var parsed=JSON.parse(data1);
   
   response.set('Content-Type', 'application/json');
-  if(desde!==undefined||desde!==undefined){
+
   	if(esEntero(request.query.desde)&&esEntero(request.query.hasta)){
   		var cadenaJSON=[];
  		for(var i=request.query.desde;i<=request.query.hasta;i++){
@@ -216,15 +216,7 @@ var funcionConsulta = function(request, response) {
   	}else{
     		response.send("Consulta no valida.");
   	}
-  }else{
-	if(){
-
-
-
-	}else{
-	}
-
-  }
+  
   
 };
 
