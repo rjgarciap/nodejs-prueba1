@@ -150,7 +150,13 @@ var funcionJSON= function(request, response){
 	if(request.query.q==='todos'){
 	 switch (request.query.b) {
 	    case 'date':
-	       response.send(""+recorrerJSON('date',parsed));
+	       var cadena="";
+	for(var i=0;i<parsed.length;i++){
+		cadena+=parsed['medidas'][i]['date']+"\l";
+	}
+
+	response.send( cadena);
+
 	       break
 	    case 'freememory':
 	      response.send(recorrerJSON('freememory',parsed));
