@@ -146,7 +146,7 @@ var funcionJSON= function(request, response){
     } 
        response.send(parsed['medidas'][request.query.q]['date']);
      }else{
-	if(request.query.q==="todos"){
+	if(request.query.q==='todos'){
 	 switch (request.query.b) {
 	    case 'date':
 	       response.send(recorrerJSON('date',parsed));
