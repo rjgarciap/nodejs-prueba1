@@ -151,12 +151,10 @@ var funcionJSON= function(request, response){
 	 switch (request.query.b) {
 	    case 'date':
 	       var cadena="";
-	for(var i=0;i<parsed.length;i++){
-		cadena+=parsed['medidas'][i]['date']+"\l";
-	}
-
-	response.send( cadena);
-
+	       for(var i=0;i<parsed.length;i++){
+	       cadena+=parsed['medidas'][i]['date']+"\l";
+	       }
+               response.send("hola");
 	       break
 	    case 'freememory':
 	      response.send(recorrerJSON('freememory',parsed));
