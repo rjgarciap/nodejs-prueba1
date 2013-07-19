@@ -12,10 +12,10 @@ function esEntero(x){
 		return false;
 	return x == y && x.toString() == y.toString();
 };
-function recorrerJSON(x,parsed){
+function recorrerJSON(x, dato){
 	var cadena=[];
-	for(var i=0;i<parsed.length;i++){
-		cadena.push(parsed['medidas'][i][x]);
+	for(var i=0;i<dato.length;i++){
+		cadena.push(dato['medidas'][i]['date']);
 	}
 
 	return cadena;
