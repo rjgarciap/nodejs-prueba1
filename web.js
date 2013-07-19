@@ -6,7 +6,7 @@ var fs = require('fs');
 var os = require('os');
 
 //Metodo para comprobar si es un numero
-function esEntero(x){
+var esEntero=function(x){
 	var y = parseInt(x);
 	if (isNaN(y)) 
 		return false;
@@ -14,7 +14,7 @@ function esEntero(x){
 };
 
 //Metodo que recorre el objeto JSON e introduce en un array todos los datos "x" de cada elemento
-function recorrerJSON(x, dato){
+var recorrerJSON=function(x, dato){
 	var cadena=[];
 	for(var i=0;i<dato['medidas'].length;i++){
 		cadena.push(dato['medidas'][i][x]);
@@ -28,7 +28,7 @@ function recorrerJSON(x, dato){
 
 //Cuidado con la hora en el json si no se pone como string(\"hora\"), ya que no es valido porque piensa que este separado.
 
-function hora(){
+var hora=function(){
 	var fecha = new Date();
 	var hora = fecha.getHours();
 	var minuto = fecha.getMinutes();
@@ -292,6 +292,7 @@ var funcionConsultaFranja = function(request, response) {
   
 };
 
+//Diferentes rutas donde se ejecutaran las diversas funciones
 app.get('/xml', funcionXML);
 app.get('/json', funcionJSON);
 app.get('/json/consulta',funcionConsulta);
