@@ -170,7 +170,7 @@ var funcionJSON= function(request, response){
 	       response.send(recorrerJSON('cputimes',parsed));
 	       break
 	    default:
-	       response.send("hola");
+	       response.send(parsed['medidas']);
 	       break
       } 
 	}else{
