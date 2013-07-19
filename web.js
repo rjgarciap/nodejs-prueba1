@@ -299,7 +299,6 @@ app.get('/json/consulta',funcionConsulta);
 app.get('/json/consultaFecha',funcionConsultaFecha);
 app.get('/json/consultaFranja',funcionConsultaFranja);
 
-
 var port = process.env.PORT || 5050;
 app.listen(port, function() {
   console.log("Listening on " + port);
